@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -24,3 +24,21 @@ function App() {
 }
 
 export default App;
+*/
+
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import { Home} from "./components/home";
+import { Order } from "./components/waitress/Order";
+
+function App() {
+  return (
+    <Router>
+      </Router>
+        );
+      }
