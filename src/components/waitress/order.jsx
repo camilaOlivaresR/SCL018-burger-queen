@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+//import { NavBar } from './Navbar';
 
-import { NavBar } from './Navbar';
 export const Order = ()=> {
     return (
-      <NavBar/>
+      <div>
+              <Link to="/servicio">CREA UNA ORDEN</Link>
+        </div>
     )
   }
   

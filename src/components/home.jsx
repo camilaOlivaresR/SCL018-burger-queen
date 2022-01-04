@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 //import imagen
 
 export const Home = () => {
@@ -7,8 +7,8 @@ export const Home = () => {
             <h1>Bienvenides al sistema de Pedidos</h1>
             <p>CoffeQuens</p>
             <div>
-            <button>Kitchen</button>
-            <button>waitress</button>
+            <button><Link to="/cocina">cocina</Link></button>
+            <button><Link to="/servicio">mesera</Link></button>
             </div>
         </section>
     )
