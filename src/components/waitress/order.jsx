@@ -1,8 +1,8 @@
-/*import React from 'react';
-import { NavBar } from './navbar';
+
+import { NavBar } from './Navbar';
 export const Order = ()=> {
     return (
-      
+      <NavBar/>
     )
   }
-  */
+  

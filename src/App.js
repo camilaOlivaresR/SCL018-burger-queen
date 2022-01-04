@@ -1,32 +1,34 @@
-/*import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (  
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <p>hola amigas</p>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import {
+  BrowserRouter as Router,
+
+  Route,
+  Link
+} from "react-router-dom";
+
+export const App = () => {
+  return (
+   <Router>
+       <div className="container">
+         <h1>Navbar</h1>
+    
+        <Route path="/contacto">
+          Pagina de contacto
+        </Route>
+        <Route path="/">
+          Pagina de Inicio
+          </Route>
+    
+      </div>
+    </Router>
   );
 }
 
 export default App;
-*/
 
-import React from "react";
+/*
+
+
 
 
 import { Home} from "./components/home";
@@ -35,6 +37,12 @@ import { Order } from "./components/waitress/order";
 function App() {
   return (
     <Router>
+     
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={Order} />
+      
+
       </Router>
         );
       }
+      */

@@ -36,8 +36,10 @@
     transform: rotate(360deg);
   }
 }*/
-.home{
-color: aqua;
+.home {
+  text-align: center;
+
+  color: #000;
 }
 .navegation{
 color: #000;

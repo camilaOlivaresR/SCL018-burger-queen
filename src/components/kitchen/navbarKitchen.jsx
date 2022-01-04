@@ -1,10 +1,11 @@
-import React from "react";
+
+import { Link } from "react-router-dom";
 //import imagen
 
 export const NavBar = () => {
-    return(
+    return (
         <nav className="navegation">
-            <button>Pedidos en Curso</button>
+            <button><Link to="/Kitchen/DeliveryKitchen">Pedidos en Curso</Link></button>
             <button>Salir</button>
         </nav>
     )
