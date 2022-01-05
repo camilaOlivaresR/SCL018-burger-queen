@@ -7,8 +7,8 @@ export const Home = () => {
             <h1>Bienvenides al sistema de Pedidos</h1>
             <p>CoffeQuens</p>
             <div>
-            <button><Link to="/cocina">cocina</Link></button>
-            <button><Link to="/servicio">mesera</Link></button>
+            <button><Link to="/kitchen">cocina</Link></button>
+            <button><Link to="/waitress">mesera</Link></button>
             </div>
         </section>
     )

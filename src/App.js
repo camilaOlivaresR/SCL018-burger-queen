@@ -13,8 +13,8 @@ export const App = () => {
       <div className="container">
         <Routes>
           <Route path="" element={<Home />} />
-          <Route path="cocina" element={<Order />} />
-          <Route path="servicio" element={<DeliveryKitchen />} />
+          <Route path="kitchen" element={<DeliveryKitchen />} />
+          <Route path="waitress" element={<Order />} />
         </Routes>
       </div>
     </Router>

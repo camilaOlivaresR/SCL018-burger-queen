@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 export const Order = ()=> {
     return (
       <div>
-              <Link to="/servicio">CREA UNA ORDEN</Link>
+              <Link to="/waitress">CREA UNA ORDEN</Link>
+              <div style={{textAlign:"center"}}>
+             <button><Link to="/">Salir</Link></button> 
+             </div>
+
         </div>
     )
   }
