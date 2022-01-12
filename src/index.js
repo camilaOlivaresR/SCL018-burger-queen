@@ -6,7 +6,7 @@ import App from './App';
 
 
 ReactDOM.render(
-  //render transportar a html
+  //render transportar a html mostrar en la pantalla
   <React.StrictMode>
     <App />
   </React.StrictMode>,

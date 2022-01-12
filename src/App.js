@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 /*  BrowserRouter as Router,
   Switch,
   Route,
@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import { Home } from "./components/Home"
 import { Order } from "./components/waitress/Order"
 import { DeliveryKitchen } from "./components/kitchen/DeliveryKitchen"
+
 
 export const App = () => {
   return (
@@ -23,8 +24,9 @@ export const App = () => {
 
 export default App;
 
-/*
 
+
+/*<
 
 
 

@@ -5,7 +5,7 @@ export const Home = () => {
     return (
         <section style={{textAlign:"center"}}>
             <h1>Bienvenides al sistema de Pedidos</h1>
-            <p>CoffeQuens</p>
+            <p>CoffeeQuens</p>
             <div>
             <button><Link to="/kitchen">cocina</Link></button>
             <button><Link to="/waitress">mesera</Link></button>
