@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home"
 import { Order } from "./components/waitress/Order"
 import { DeliveryKitchen } from "./components/kitchen/DeliveryKitchen"
+import './App.css'
+
+
 
 
 export const App = () => {

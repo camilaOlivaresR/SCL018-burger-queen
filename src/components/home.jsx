@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 //import imagen
+import './App.css'
 
 export const Home = () => {
     return (
