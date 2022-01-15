@@ -3,7 +3,6 @@ import { InputClient } from "./Input";
 import { Product } from "./Product";
 
 
-
 export const Order = () => {
   return (
     <div style={{ textAlign: "center" }}>
