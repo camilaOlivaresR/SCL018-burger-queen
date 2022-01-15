@@ -1,16 +1,18 @@
+
 import { Link } from "react-router-dom";
-import { InputClient } from "./Input";
-import { Product } from "./Product";
+import { Out } from "../commons/NavCom";
+import { InputClient } from "./InputData";
+
 
 
 export const Order = () => {
+
+ 
+  
   return (
     <div style={{ textAlign: "center" }}>
       <Link to="/waitress">CREA UNA ORDEN</Link>
-      <button><Link to="/">Salir</Link></button>
-      <main>
-       <Product />
-      </main>
+      <Out/>
    <aside>
     <InputClient />
     </aside>
