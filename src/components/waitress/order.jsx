@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Out } from "../commons/NavCom";
 import { InputClient } from "./InputData";
-import { Product } from "./Product";
+
 
 
 
