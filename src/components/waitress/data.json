@@ -1,13 +1,12 @@
 {
-    "burgerQueen": "VeganQuenn.",
-    "Product": [
+    "productos": [ 
       {
         "id": "1",
         "name": "Ensalada de frutas",
         "description": "Frutas de Estacion.",
         "type": "Dulces",
         "price": "3.900",
-        "img": "https://tofuu.getjusto.com/orioneat-prod-resized/t6ALpeFmsSwzp32pc-1200-1200.webp"
+        "img": "https://tofuu.getjusto.com/orioneat-prod-resized/t6ALpeFmsSwzp32pc-1200-1200.webp" 
         
     },
     {
