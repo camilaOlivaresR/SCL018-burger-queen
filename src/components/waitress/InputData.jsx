@@ -20,7 +20,8 @@ const onChange = (evento) => {
 }
  //aqui puedo agregar else if infitos segun comprobaciones necesite  
 
- const onSubmit =() => {
+ const onSubmit =(evento) => {
+   evento.preventDefaul();
    alert('enviando a db')
  }
 
