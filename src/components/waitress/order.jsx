@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { Out } from "../commons/NavCom";
 import { InputClient } from "./InputData";
+import { ListProduct } from "./ListProduct";
 
 
 
@@ -12,7 +13,8 @@ export const Order = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <Link to="/waitress">CREA UNA ORDEN</Link>
-      <Out/>
+ 
+      <ListProduct/>
    <aside>
     <InputClient />
     </aside>
