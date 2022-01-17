@@ -44,8 +44,10 @@ export const ListProduct = () => {
   </nav>
   <article>
     <ul className="cards">
-    {productos.map((producto) => (
-    <main>
+      {/* el metodo map nos permitira recorrer todos los productos y 
+      nos retorna un arreglo final mostrar en pantalla, por cada elemento obtenemos img-name-price*/}
+    {productos.map((producto, index) => (
+    <main key={index}>
     <div className="div">
         <img className="img" src={producto.img}  />
         </div>
@@ -54,7 +56,7 @@ export const ListProduct = () => {
             <p>${ producto.price}</p>
         </div>
         <button>
-            Agregar
+            Agregar a mi Menu
         </button>
     
 </main>

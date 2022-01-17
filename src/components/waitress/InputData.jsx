@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Pedido from "./Pedido";
 
  export const  InputClient  = () => {
    const [client , cambiarClient] = useState('');
@@ -69,7 +70,7 @@ const onChange = (evento) => {
           <h4>Precio</h4>
         </div>
         <aside className="sumary">
-          <p>No hay Productos</p>
+        <Pedido/>
         </aside>
       </section>
       <div>
