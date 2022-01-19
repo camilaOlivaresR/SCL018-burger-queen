@@ -5,7 +5,7 @@
         "name": "Ensalada de frutas",
         "description": "Frutas de Estacion.",
         "type": "Dulces",
-        "price": "3.900",
+        "price": 3900,
         "img": "https://tofuu.getjusto.com/orioneat-prod-resized/t6ALpeFmsSwzp32pc-1200-1200.webp" 
         
     },
@@ -13,7 +13,7 @@
       "id": "2",
       "name": "Cheesecake vegano",
       "description": "Con castañas de cajú, pasas y salsa de frutos rojos (endulzado con panela).",
-      "price": "4000",
+      "price": 4.000,
       "type": "Dulces",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/gvQZ2BQh563vjBHCc-1200-1200.webp"
     },
@@ -21,7 +21,7 @@
       "id": "3",
       "name": "Barra de coco y chocolate ",
       "description": "Con castañas de cajú, pasas y salsa de frutos rojos (endulzado con panela).",
-      "price": "4.500",
+      "price": 4.500,
       "type": "Dulces",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/XnHJD2GPLnHvrm8GB-1200-1200.webp"
     },
@@ -29,7 +29,7 @@
       "id": "4",
       "name": "Tarta vegana de semillas ",
       "description": "Base frutos secos , rellena con frutos rojos.",
-      "price": "4.300",
+      "price": 4.300,
       "type": "Dulces",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/h22L8DCocxdhHuyeR-1200-1200.webp"
     },
@@ -37,7 +37,7 @@
       "id": "5",
       "name": "Burrito vegano & sopa",
       "description": "Burrito relleno con hummus, espinaca, pasta de champiñones con hierbas frescas, repollo encurtido, zanahoria con zeste de naranja y semillas de maravillas mas sopa a aleccion.",
-      "price": "9.900",
+      "price": 9.900,
       "type": "Platos de fondo",
       "extra": ["Sopa de zapallo y zanahoria", "Gazpacho"],
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/ZB4qdb6EWz7ymgvEq-1200-1200.webp"
@@ -46,7 +46,7 @@
       "id": "6",
       "name": "Hamburguesa Vegana",
       "description": "Hamburguesa a eleccion con tomate, lechuga, pepinillo, cebolla y mayonesa vegana de zanahoria acompañada de papas horneadas con merken.",
-      "price": "8.500",
+      "price": 8.500,
       "type": "Platos de fondo",
       "extra": ["Lentejas", "Beyond Meat"],
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/PjBNmL7KqqBStryZv-1200-1200.webp"
@@ -55,7 +55,7 @@
       "id": "7",
       "name": "Pastel de Choclo",
       "description": " Con pino de berenjenas, champiñones y pasas acompañado de lechuga, tomate, palta, cebolla morada y ají verde.",
-      "price": "9.900",
+      "price": 9.900,
       "type": "Platos de fondo",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/mm4REkgyvFXubccZ8-1200-1200.webp"
     },
@@ -63,7 +63,7 @@
       "id": "8",
       "name": "Chicana vegana",
       "description":"Tacos de maíz rellenos de porotos negros, verduras asadas y salsa diabla. Una pequeña flor de brócoli, zapallo amarillo, arroz poblano, guacamole, pico de gallo y lechuga picada.",
-      "price": "9.900",
+      "price": 9.900,
       "type": "Platos de fondo",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/WGXMtfojCZfPyygJr-1200-1200.webp"
     },
@@ -71,14 +71,14 @@
       "id": "9",
       "name": "Omelette de Tofu",
       "description": "Con tofu organico ,curcuma ,champiñones, espinaca y queso vegano.",
-      "price": "8.500",
+      "price": 8.500,
       "type": "Platos de fondo",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/FJfyDcPMBq9KTxJMt-1200-1200.webp"
     },
     {
       "id": "10",
       "name": "Jugos",
-      "price": "1.900",
+      "price": 1.900,
       "type": "Para tomar",
       "extra": ["Jugo de naranja", "Jugo de piña jengibre", "Limonada menta jengibre","Jugo de zanahoria"],
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/tthtbWoYNyr44khbM-1200-1200.webp"
@@ -86,21 +86,21 @@
     {
       "id": "11",
       "name": "Agua mineral ",
-      "price": "1.200",
+      "price": 1.200,
       "type": "Para tomar",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/w3DtbM4gZNagRDJGf-1200-1200.webp"
     },
     {
       "id": "12",
       "name": "Té",
-      "price": "1.500",
+      "price": 1.500,
       "type": "Para tomar",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/MfKkfZy9FZJKzNLA8-1200-1200.webp"
     },
     {
       "id": "13",
       "name": "Kombucha sunshot",
-      "price": "3.200",
+      "price": 3.200,
       "type": "Para tomar",
       "img":"https://tofuu.getjusto.com/orioneat-prod-resized/ZNcAT3hmAsyEhu8j9-1200-1200.webp"
     }

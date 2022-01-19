@@ -6,24 +6,30 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home"
 import { Order } from "./components/waitress/Order"
 import { DeliveryKitchen } from "./components/kitchen/DeliveryKitchen"
+import styled from "styled-components";
 
 
 
 
-
-export const App = () => {
+ const App = () => {
   return (
+   <ContenedorPrincipal>
     <Router>
       <div className="container">
         <Routes>
           <Route path="" element={<Home />} />
-          <Route path="kitchen" element={<DeliveryKitchen />} />
           <Route path="waitress" element={<Order />} />
+          <Route path="kitchen" element={<DeliveryKitchen />} />
         </Routes>
       </div>
     </Router>
+    </ContenedorPrincipal>
   );
 }
+
+const ContenedorPrincipal = styled.div`
+  background: green;
+`;
 
 export default App;
 

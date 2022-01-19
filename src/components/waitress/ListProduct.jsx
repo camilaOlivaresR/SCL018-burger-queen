@@ -2,8 +2,7 @@ import { useState } from "react";
 
 import dataJson from "./data.json";
 import "./Listproduct.css"
-
-
+import styled from "styled-components";
 
 
 
@@ -48,9 +47,9 @@ export const ListProduct = () => {
       nos retorna un arreglo final mostrar en pantalla, por cada elemento obtenemos img-name-price*/}
     {productos.map((producto, index) => (
     <main key={index}>
-    <div className="div">
+    <Imagen>
         <img className="img" src={producto.img}  />
-        </div>
+        </Imagen>
         <div>
             <p>{ producto.name }</p>
             <p>${ producto.price}</p>
@@ -66,3 +65,9 @@ export const ListProduct = () => {
 </article>
 )
 } 
+
+const Imagen = styled.div`
+height: 25vh;
+width: 25vh;
+align-content: center;
+`;

@@ -27,7 +27,7 @@ const onChange = (evento) => {
  }
 
     return (
-        <div style={{textAlign:"center"}}>
+        <div >
      <form action="" onSubmit={onSubmit}>
        <p>Cliente: {client}</p>{/*las llaves representan el estado, cargar los cambios para actualizar */}
        <p>Email: {email}</p>
