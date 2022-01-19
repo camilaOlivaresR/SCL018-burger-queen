@@ -1,23 +1,15 @@
-import { useState } from "react";
-import dataJson from "./data.json";
 
-const Pedido = () => {
-    const data = dataJson.productos;
-    
-    const [pedido , sumarPedido] = useState(data);
-    const agregarProductoAlPedido = ( ) => {
 
-    }
-   
+//carrito de compas es un estado que va cambiando
+const Pedido = ({ pedido  }) => {
     return (
         <div>
-     <p>pedido aqui cargara</p>
      {pedido.length > 0 ?
     pedido.map((producto, index ) => {
         return(
             <div key={index}>
-             <h1>{producto.name}</h1>
-             <p>Cantidad: {producto.price}</p>
+             <p>{producto.name}</p>
+             <p>{producto.price}</p>
              </div>
              );
        

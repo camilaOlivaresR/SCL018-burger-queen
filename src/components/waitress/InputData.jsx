@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Pedido from "./Pedido";
 
- export const  InputClient  = () => {
+ export const  InputClient  = ({data , pedido , agregarProductoAlPedido}) => {
    const [client , cambiarClient] = useState('');
    const [email , cambiarEmail] = useState('');
    {/* 
@@ -21,7 +21,7 @@ const onChange = (evento) => {
 }
  //aqui puedo agregar else if infitos segun comprobaciones necesite  
 
- const onSubmit =(evento) => {
+ const onSubmit =(evento ) => {
    evento.preventDefaul();
    alert('enviando a db')
  }
@@ -66,12 +66,15 @@ const onChange = (evento) => {
       </section>
       <section >
         <div >
-          <h4>Productos</h4>
-          <h4>Precio</h4>
+          <h4>Productos-Precio</h4>
+       <div>
+        <Pedido 
+        data={data} 
+        pedido={pedido}
+        agregarProductoAlPedido={agregarProductoAlPedido}
+        />
         </div>
-        <aside className="sumary">
-        <Pedido/>
-        </aside>
+            </div>
       </section>
       <div>
 

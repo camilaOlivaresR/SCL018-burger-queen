@@ -1,14 +1,14 @@
-import { useState } from "react";
 
-import dataJson from "./data.json";
+
+
 import "./Listproduct.css"
 import styled from "styled-components";
+import { useState } from "react";
 
 
 
-
-export const ListProduct = () => {
-    const data = dataJson.productos;
+export const ListProduct = ({data , agregarProductoAlPedido }) => {
+    
     
    const View = data.filter((elem) => elem.type === "Dulces");
    const [ productos , cambiarProductos] = useState(View);
@@ -51,12 +51,16 @@ export const ListProduct = () => {
         <img className="img" src={producto.img}  />
         </Imagen>
         <div>
+          <p>{producto.id}</p>
             <p>{ producto.name }</p>
             <p>${ producto.price}</p>
-        </div>
-        <button>
-            Agregar a mi Menu
+       
+        <button 
+           onClick={() => agregarProductoAlPedido(producto.name, producto.price, producto.id)}
+        >
+          Agregar a mi Menu
         </button>
+        </div>
     
 </main>
         ))}

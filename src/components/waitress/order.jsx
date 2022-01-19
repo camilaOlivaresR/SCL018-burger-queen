@@ -4,20 +4,71 @@ import { Out } from "../commons/NavCom";
 import { InputClient } from "./InputData";
 import { ListProduct } from "./ListProduct";
 import styled from "styled-components";
+import dataJson from "./data.json";
+import { useState } from "react";
 
 
 export const Order = () => {
+  const data = dataJson.productos;
+  const [pedido, cambiarPedido] = useState([]);
+
+  const agregarProductoAlPedido = (ProductoAgregar, precio, identificador) => {
+    console.log(identificador);
+    //Si el carrito no tiene elementos entonces agregamos 1
+    if (pedido.length === 0) {
+      cambiarPedido([{ name: ProductoAgregar, price: precio, id: identificador }]);
+
+    } else {
+      //para editar el arreglo hay que clonarlo
+      const nuevoPedido = [...pedido];
+      //comprobar si el carrito ya tiene el id del platillo
+      const yaEstaEnPedido = nuevoPedido.filter((productoDePedido) => {
+        return productoDePedido.id === identificador
+      }).length > 0;
+
+      if (yaEstaEnPedido) {
+        nuevoPedido.forEach((productoDePedido, index) => {
+          if (productoDePedido.id === identificador) {
+            const cantidad = nuevoPedido[index].cantidad;
+            nuevoPedido[index] = { id: identificador, name: ProductoAgregar, price: precio ,cantidad: cantidad + 1 }
+          }
+
+        });
+      } else {
+        nuevoPedido.push({
+          id : identificador,
+          name : ProductoAgregar,
+          price: precio,
+          cantidad : 1
+
+        }
+        
+        );
+      }
+      cambiarPedido(nuevoPedido);
+    }
+
+  }
+
+
   return (
     <Contenedor>
       <Link to="/"><button>Salir</button></Link>
       <Menu>
 
-        <ListProduct />
-        
+        <ListProduct
+          data={data}
+          agregarProductoAlPedido={agregarProductoAlPedido}
+        />
+
 
       </Menu>
       <Carrito>
-        <InputClient />
+        <InputClient
+          data={data}
+          pedido={pedido}
+          agregarProductoAlPedido={agregarProductoAlPedido}
+        />
       </Carrito>
     </Contenedor>
 
@@ -80,7 +131,7 @@ const Menu = styled.nav`
       border-radius: 3px;
       `;
 
-      const Carrito = styled.aside`
+const Carrito = styled.aside`
       display: flex;
       justify-content: flex-end;
       align-items: flex-start;
