@@ -2,111 +2,86 @@
 import { Link } from "react-router-dom";
 import { InputClient } from "./InputData";
 import { Product } from "./Product";
+import Cart from "./Cart";
 import styled from "styled-components";
 import dataJson from "../../data.json"
-import { useState } from "react";
+import { useState, createContext } from "react";
 
+export const MenuContext = createContext();
 
 export const Order = () => {
   const data = dataJson.productos;
-  const [pedido, cambiarPedido] = useState([]);
+  const [ state, setState] = useState({
+    menuList : data,
+    cart : []
+  });
 
-  const agregarProductoAlPedido = (ProductoAgregar, precio, identificador) => {
-    console.log(identificador);
-    //Si el carrito no tiene elementos entonces agregamos 1
-    if (pedido.length === 0) {
-      cambiarPedido([{ name: ProductoAgregar, price: precio, id: identificador }]);
-
-    } else {
-      //para editar el arreglo hay que clonarlo
-      const nuevoPedido = [...pedido];
-      //comprobar si el carrito ya tiene el id del platillo
-      const yaEstaEnPedido = nuevoPedido.filter((productoDePedido) => {
-        return productoDePedido.id === identificador
-      }).length > 0;
-
-      if (yaEstaEnPedido) {
-        nuevoPedido.forEach((productoDePedido, index) => {
-          if (productoDePedido.id === identificador) {
-            const cantidad = nuevoPedido[index].cantidad;
-            nuevoPedido[index] = { id: identificador, name: ProductoAgregar, price: precio  ,cantidad: cantidad + 1 }
-          }
-
-        });
-      } else {
-        nuevoPedido.push({
-          id : identificador,
-          name : ProductoAgregar,
-          price: precio,
-          cantidad : 1
-
-        }
-        
-        );
-      }
-      cambiarPedido(nuevoPedido);
+  function addProduct(product) {
+    return setState({
+      ...state,
+      cart: state.cart.find((cartItem) => cartItem.id === product.id)
+        ? state.cart.map((cartItem) =>
+            cartItem.id === product.id
+              ? { ...cartItem, count: cartItem.count + 1 }
+              : cartItem
+          )
+        : [...state.cart, { ...product, count: 1 }]
+      });
     }
+   
+    const removeFromCart = (id) => {
+      setState({
+        ...state,
+        cart: state.cart.filter((cartItem) => cartItem.id !== id)
+      });
+    };
 
-  }
+    const increase = (id) => {
+      setState({
+        ...state,
+        cart: state.cart.map((cartItem) =>
+          cartItem.id === id
+            ? { ...cartItem, count: cartItem.count + 1 }
+            : cartItem
+        )
+      });
+    };
 
-
+    const decrease = (id) => {
+      setState({
+        ...state,
+        cart: state.cart.map((cartItem) =>
+          cartItem.id === id
+            ? { ...cartItem, count: cartItem.count > 1 ? cartItem.count - 1 : 1 }
+            : cartItem
+        )
+      });
+    };
+    const deger = { state: state, addProduct, removeFromCart, increase, decrease };
   return (
+    <MenuContext.Provider value={deger}>
     <Contenedor>
       <Link to="/"><button>Salir</button></Link>
       <Menu>
         
-        <Product
-          data={data}
-          agregarProductoAlPedido={agregarProductoAlPedido}
-        />
-
+        <Product data={data}/>
 
       </Menu>
+     
       <Carrito>
-        <InputClient
-          data={data}
-          pedido={pedido}
-          agregarProductoAlPedido={agregarProductoAlPedido}
-        />
+
+        <Cart/>
+
       </Carrito>
+       
+
     </Contenedor>
 
+    </MenuContext.Provider>
 
-    /* 
-   <div style={{ textAlign: "center" }}>
-     <header>
-     <nav>
-       <a href=""> Crear Orden</a>
-       <Link to="/"><button>Salir</button></Link>
-       
-     </nav>
-  
-     <Link to="/waitress">CREA UNA ORDEN</Link>
  
-     <ListProduct/>
-  <aside>
-   <InputClient />
-   </aside>
-   
-   </header>
-   <main>
-   <ListProduct/>
-   </main>
-   <aside>
-   <InputClient />
-   </aside>
-   
-   </div>
-    */
-  )
+    )
 }
-
-
-/*
-   <section>
-       
-      </section>
- */
 
 
 const Contenedor = styled.div`

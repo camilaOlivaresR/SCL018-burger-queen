@@ -3,15 +3,23 @@
 
 import "./Listproduct.css"
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MenuContext } from "./Order";
 
 
 
-export const Product = ({data , agregarProductoAlPedido }) => {
+
+export const Product = ({data}) => {
+  
+  const context = useContext(MenuContext);
+  const totalCartCount = context.state.cart.reduce(
+    (total, product) => (total = total + product.count),
+    0
+  );
     
-    
+ 
    const View = data.filter((elem) => elem.type === "Dulces");
-   const [ productos , cambiarProductos] = useState(View);
+   const [ product , cambiarProductos] = useState(View);
 
    const productsType = (option) => {
     // eslint-disable-next-line default-case
@@ -45,18 +53,19 @@ export const Product = ({data , agregarProductoAlPedido }) => {
     <ul className="cards">
       {/* el metodo map nos permitira recorrer todos los productos y 
       nos retorna un arreglo final mostrar en pantalla, por cada elemento obtenemos img-name-price*/}
-    {productos.map((producto, index) => (
-    <main key={index}>
+     
+    {product.map((product) => (
+    <main>
     <Imagen>
-        <img className="img" src={producto.img}  />
+        <img className="img" src={product.img}  />
         </Imagen>
         <div>
-          <p>{producto.id}</p>
-            <p>{ producto.name }</p>
-            <p>${ producto.price}</p>
-       
+          <p>{product.id}</p>
+            <p>{ product.name }</p>
+            <p>${ product.price}</p>
+           
         <button 
-           onClick={() => agregarProductoAlPedido(producto.name, producto.price, producto.id)}
+           onClick={() => context.addProduct(product)}
         >
           Agregar a mi Menu
         </button>

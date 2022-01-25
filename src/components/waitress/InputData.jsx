@@ -1,7 +1,8 @@
 import { useState } from "react"
-import Cart from "./Cart";
 
- export const  InputClient  = ({data , pedido , agregarProductoAlPedido}) => {
+
+
+ export const  InputClient  = () => {
    const [client , cambiarClient] = useState('');
    const [table , cambiarMesa] = useState('');
    {/* 
@@ -60,26 +61,8 @@ const onChange = (evento) => {
       <section >
       <p>Cliente: {client}</p>{/*las llaves representan el estado, cargar los cambios para actualizar */}
        <p>Mesa: {table}</p>
-        <div >
-          <h4>Productos-Precio</h4>
-       <div>
-        <Cart
-        data={data} 
-        pedido={pedido}
-        agregarProductoAlPedido={agregarProductoAlPedido}
-        />
-        </div>
-            </div>
       </section>
-      <div>
-
-        <button type="submit" >
-          Borrar orden
-        </button>
-        <button type="submit">
-          Enviar a cocina
-        </button>
-      </div>
+   
 
     </form>
             
