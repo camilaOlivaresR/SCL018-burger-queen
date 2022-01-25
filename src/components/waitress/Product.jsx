@@ -1,88 +1,77 @@
-import { db  } from "../../firebase";
-import { collection , onSnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react";
 
 
 
-export const Product = () => {
-   const [ productos , cambiarProductos] = useState([]);
+import "./Listproduct.css"
+import styled from "styled-components";
+import { useState } from "react";
 
-   useEffect(() => {
-    onSnapshot( 
-      collection(db , 'Productos'),
-      (snapshot) => {
-        //console.log('se ejecuto snapshot')
-       // console.log(snapshot.docs[0].data());
-       const arregloProductos =  snapshot.docs.map((documento)=> {
-        return {...documento.data(), id: documento.id }
 
-       })
-       cambiarProductos(arregloProductos);
-      }
-      );
-   }, []);
+
+export const Product = ({data , agregarProductoAlPedido }) => {
     
-    return (
-        productos.length > 0 &&
-        <div style={{ textAlign: "left" }}>
-           {productos.map((producto) =>(
-               <main>
-               <div >
-                   <img src={producto.url} />
-                   </div>
-                   <div>
-                       <p>{ producto.name }</p>
-                       <p>{ producto.price}</p>
-                   </div>
-                   <button>
-                       Agregar
-                   </button>
-               
-           </main>
-           ))}
-        </div>
-    )
-}
+    
+   const View = data.filter((elem) => elem.type === "Dulces");
+   const [ productos , cambiarProductos] = useState(View);
 
-
-
-  /*
-  const [data, setData] = useState([]);
-
-    useEffect(() => {
-     
-          setData([...data]);
+   const productsType = (option) => {
+    // eslint-disable-next-line default-case
+    switch (option) {
+      case "Dulces":
+        const sweets = data.filter((elem) => elem.type === option);
+        cambiarProductos(sweets);
+        break;
+      case "Platos de fondo":
+        const main = data.filter((elem) => elem.type === option);
+        cambiarProductos(main);
+        break;
+      case "Para tomar":
+        const drinks = data.filter((elem) => elem.type === option);
+        cambiarProductos(drinks);
+        break;
+    }
+  };
+  return (
+  <article className="productsList">
+  <nav>
+    <ul>
+      <div>
+        <li onClick={() => productsType("Dulces")}>Dulces</li>
+        <li onClick={() => productsType("Platos de fondo")}>Plato de Fondo</li>
+        <li onClick={() => productsType("Para tomar")}>Para Tomar </li>
+      </div>
+    </ul>
+  </nav>
+  <article>
+    <ul className="cards">
+      {/* el metodo map nos permitira recorrer todos los productos y 
+      nos retorna un arreglo final mostrar en pantalla, por cada elemento obtenemos img-name-price*/}
+    {productos.map((producto, index) => (
+    <main key={index}>
+    <Imagen>
+        <img className="img" src={producto.img}  />
+        </Imagen>
+        <div>
+          <p>{producto.id}</p>
+            <p>{ producto.name }</p>
+            <p>${ producto.price}</p>
        
-    }, []);
-  */
-
-    /*
-     useEffect(() => {
-        const orderCollection = db.collection('Productos').orderBy('orderDate', 'desc');
-        const unsuscribe = orderCollection.onSnapshot(snapshot => {
-          const array = [];
-          snapshot.forEach(doc => {
-            const element = doc.data();
-            const id = doc.id;
-            array.push({...element, id});
-          })
-          setData(array);
-        });
-        return () => unsuscribe;
-      }, []);
+        <button 
+           onClick={() => agregarProductoAlPedido(producto.name, producto.price, producto.id)}
+        >
+          Agregar a mi Menu
+        </button>
+        </div>
     
-    */
-   /*
-    <main>
-                <div className="div">
-                    <img src={img} />
-                    <div>
-                        <p>{ name }</p>
-                        <p>{ price}</p>
-                    </div>
-                    <button>
-                        Agregar
-                    </button>
-                </div>
-            </main>
-   */
+</main>
+        ))}
+    </ul>
+  </article>
+</article>
+)
+} 
+
+const Imagen = styled.div`
+height: 25vh;
+width: 25vh;
+align-content: center;
+`;

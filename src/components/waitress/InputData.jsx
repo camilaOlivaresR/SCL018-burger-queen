@@ -1,9 +1,9 @@
 import { useState } from "react"
-import Pedido from "./Pedido";
+import Cart from "./Cart";
 
  export const  InputClient  = ({data , pedido , agregarProductoAlPedido}) => {
    const [client , cambiarClient] = useState('');
-   const [email , cambiarEmail] = useState('');
+   const [table , cambiarMesa] = useState('');
    {/* 
    const onChangeClient = (evento) => {
     cambiarClient( evento.target.value);
@@ -16,8 +16,8 @@ import Pedido from "./Pedido";
 const onChange = (evento) => {
   if( evento.target.name=== 'client'){
     cambiarClient( evento.target.value);
-  } else if (evento.target.name=== 'email')
-  cambiarEmail( evento.target.value);
+  } else if (evento.target.name=== 'table')
+  cambiarMesa( evento.target.value);
 }
  //aqui puedo agregar else if infitos segun comprobaciones necesite  
 
@@ -29,9 +29,8 @@ const onChange = (evento) => {
     return (
         <div >
      <form action="" onSubmit={onSubmit}>
-       <p>Cliente: {client}</p>{/*las llaves representan el estado, cargar los cambios para actualizar */}
-       <p>Email: {email}</p>
-      <h3>Resumen del pedido</h3>
+       
+      
       <section >
         <p>Cliente : </p>
         <input
@@ -39,14 +38,6 @@ const onChange = (evento) => {
           name="client"
           id="client"
           value={client}
-          onChange={onChange}
-        />
-        <p>Email : </p>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          value={email}
           onChange={onChange}
         />
         <p>Mesero: </p>
@@ -60,15 +51,19 @@ const onChange = (evento) => {
           type="number"
           name="table"
           id="table"
+          value={table}
+          onChange={onChange}
           min="1" max="6"
           placeholder="1-6"
         />
       </section>
       <section >
+      <p>Cliente: {client}</p>{/*las llaves representan el estado, cargar los cambios para actualizar */}
+       <p>Mesa: {table}</p>
         <div >
           <h4>Productos-Precio</h4>
        <div>
-        <Pedido 
+        <Cart
         data={data} 
         pedido={pedido}
         agregarProductoAlPedido={agregarProductoAlPedido}

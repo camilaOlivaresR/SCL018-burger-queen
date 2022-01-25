@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Product } from "../waitress/Product";
+import { Product } from "../kitchen/ProductKitchen";
 
 
 

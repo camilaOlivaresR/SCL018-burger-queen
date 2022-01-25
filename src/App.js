@@ -17,9 +17,9 @@ import styled from "styled-components";
     <Router>
       <div className="container">
         <Routes>
-          <Route path="" element={<Home />} />
-          <Route path="waitress" element={<Order />} />
-          <Route path="kitchen" element={<DeliveryKitchen />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/waitress" element={<Order />} />
+          <Route path="/kitchen" element={<DeliveryKitchen />} />
         </Routes>
       </div>
     </Router>
@@ -28,7 +28,8 @@ import styled from "styled-components";
 }
 
 const ContenedorPrincipal = styled.div`
-  background: green;
+ 
+
 `;
 
 export default App;

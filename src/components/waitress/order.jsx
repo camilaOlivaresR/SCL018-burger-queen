@@ -1,10 +1,9 @@
 
 import { Link } from "react-router-dom";
-import { Out } from "../commons/NavCom";
 import { InputClient } from "./InputData";
-import { ListProduct } from "./ListProduct";
+import { Product } from "./Product";
 import styled from "styled-components";
-import dataJson from "./data.json";
+import dataJson from "../../data.json"
 import { useState } from "react";
 
 
@@ -30,7 +29,7 @@ export const Order = () => {
         nuevoPedido.forEach((productoDePedido, index) => {
           if (productoDePedido.id === identificador) {
             const cantidad = nuevoPedido[index].cantidad;
-            nuevoPedido[index] = { id: identificador, name: ProductoAgregar, price: precio ,cantidad: cantidad + 1 }
+            nuevoPedido[index] = { id: identificador, name: ProductoAgregar, price: precio  ,cantidad: cantidad + 1 }
           }
 
         });
@@ -55,8 +54,8 @@ export const Order = () => {
     <Contenedor>
       <Link to="/"><button>Salir</button></Link>
       <Menu>
-
-        <ListProduct
+        
+        <Product
           data={data}
           agregarProductoAlPedido={agregarProductoAlPedido}
         />
@@ -112,27 +111,25 @@ export const Order = () => {
 
 const Contenedor = styled.div`
      
-      padding: 40px;
-      width: 90%;
-      display: grid;
-      gap: 20px;
-      grid-template-columns: 2fr 1fr;
-     
-     
-      border-radius: 10px;
-  
-      
+display: flex; 
+background: green;
       `;
 
-const Menu = styled.nav`
-      width: 100%;
-     
-      grid-column: span 2;
-      border-radius: 3px;
+const Menu = styled.main`
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
       `;
 
 const Carrito = styled.aside`
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
+width: 40%;
+height: 50%;
+padding-left: 20px;
+margin-left: 15px;
+padding-bottom: 15px;
+float: right;
+font-style: italic;
+background-color: lightgray;
       `;

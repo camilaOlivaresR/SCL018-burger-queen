@@ -1,7 +1,7 @@
 
 
 //carrito de compas es un estado que va cambiando
-const Pedido = ({ pedido  }) => {
+const Cart = ({ pedido  }) => {
     return (
         <div>
      {pedido.length > 0 ?
@@ -23,4 +23,4 @@ const Pedido = ({ pedido  }) => {
     )
 }
 
-export default Pedido
+export default Cart
