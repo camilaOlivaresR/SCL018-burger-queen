@@ -11,9 +11,9 @@ export const MenuContext = createContext();
 
 export const Order = () => {
   const data = dataJson.productos;
-  const [ state, setState] = useState({
-    menuList : data,
-    cart : []
+  const [state, setState] = useState({
+    menuList: data,
+    cart: []
   });
 
   function addProduct(product) {
@@ -21,66 +21,66 @@ export const Order = () => {
       ...state,
       cart: state.cart.find((cartItem) => cartItem.id === product.id)
         ? state.cart.map((cartItem) =>
-            cartItem.id === product.id
-              ? { ...cartItem, count: cartItem.count + 1 }
-              : cartItem
-          )
-        : [...state.cart, { ...product, count: 1 }]
-      });
-    }
-   
-    const removeFromCart = (id) => {
-      setState({
-        ...state,
-        cart: state.cart.filter((cartItem) => cartItem.id !== id)
-      });
-    };
-
-    const increase = (id) => {
-      setState({
-        ...state,
-        cart: state.cart.map((cartItem) =>
-          cartItem.id === id
+          cartItem.id === product.id
             ? { ...cartItem, count: cartItem.count + 1 }
             : cartItem
         )
-      });
-    };
+        : [...state.cart, { ...product, count: 1 }]
+    });
+  }
 
-    const decrease = (id) => {
-      setState({
-        ...state,
-        cart: state.cart.map((cartItem) =>
-          cartItem.id === id
-            ? { ...cartItem, count: cartItem.count > 1 ? cartItem.count - 1 : 1 }
-            : cartItem
-        )
-      });
-    };
-    const deger = { state: state, addProduct, removeFromCart, increase, decrease };
+  const removeFromCart = (id) => {
+    setState({
+      ...state,
+      cart: state.cart.filter((cartItem) => cartItem.id !== id)
+    });
+  };
+
+  const increase = (id) => {
+    setState({
+      ...state,
+      cart: state.cart.map((cartItem) =>
+        cartItem.id === id
+          ? { ...cartItem, count: cartItem.count + 1 }
+          : cartItem
+      )
+    });
+  };
+
+  const decrease = (id) => {
+    setState({
+      ...state,
+      cart: state.cart.map((cartItem) =>
+        cartItem.id === id
+          ? { ...cartItem, count: cartItem.count > 1 ? cartItem.count - 1 : 1 }
+          : cartItem
+      )
+    });
+  };
+  const deger = { state: state, addProduct, removeFromCart, increase, decrease };
   return (
     <MenuContext.Provider value={deger}>
-    <Contenedor>
-      <Link to="/"><button>Salir</button></Link>
-      <Menu>
-        
-        <Product data={data}/>
+      <Contenedor>
+        <Link to="/"><button>Salir</button></Link>
+        <Menu>
 
-      </Menu>
-     
-      <Carrito>
+          <Product data={data} />
 
-        <Cart/>
+        </Menu>
 
-      </Carrito>
-       
+        <Carrito>
 
-    </Contenedor>
+          <Cart />
+
+        </Carrito>
+
+
+      </Contenedor>
 
     </MenuContext.Provider>
 
- 
-    )
+
+  )
 }
 
 

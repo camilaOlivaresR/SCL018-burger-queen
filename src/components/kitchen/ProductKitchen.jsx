@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 
 
 
-export const Product = () => {
-   const [ productos , cambiarProductos] = useState([]);
+export const ProductKitchen = () => {
+   const [ pedido , cambiarPedido] = useState([]);
 
    useEffect(() => {
     onSnapshot( 
-      collection(db , 'Productos'),
+      collection(db , 'estado de pedidos'),
       (snapshot) => {
         //console.log('se ejecuto snapshot')
        // console.log(snapshot.docs[0].data());
@@ -17,26 +17,26 @@ export const Product = () => {
         return {...documento.data(), id: documento.id }
 
        })
-       cambiarProductos(arregloProductos);
+       cambiarPedido(arregloProductos);
       }
       );
    }, []);
     
     return (
-        productos.length > 0 &&
         <div style={{ textAlign: "left" }}>
-           {productos.map((producto) =>(
+           {pedido.map((pedido) =>(
                <main>
                <div >
-                   <img src={producto.url} />
+                   <p>{pedido.cliente} </p>
                    </div>
                    <div>
-                       <p>{ producto.name }</p>
-                       <p>{ producto.price}</p>
+                       <li>{ pedido.pedido}</li>
+                       <p>{ pedido.total}</p>
+                       <p>{pedido.estado}</p>
                    </div>
-                   <button>
-                       Agregar
-                   </button>
+                  
+                       
+                   
                
            </main>
            ))}
