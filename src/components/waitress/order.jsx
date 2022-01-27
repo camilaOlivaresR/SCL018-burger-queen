@@ -57,14 +57,14 @@ export const Order = () => {
       )
     });
   };
-  const deger = { state: state, addProduct, removeFromCart, increase, decrease };
+  const deger = { state: state, addProduct, removeFromCart, increase, decrease, data };
   return (
     <MenuContext.Provider value={deger}>
       <Contenedor>
         <Link to="/"><button>Salir</button></Link>
         <Menu>
 
-          <Product data={data} />
+          <Product data= {data} />
 
         </Menu>
 

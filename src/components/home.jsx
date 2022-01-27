@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 //import imagen
 import styled from "styled-components";
+import { InputClient } from "./waitress/InputData";
 
 
 

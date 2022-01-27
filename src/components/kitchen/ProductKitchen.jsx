@@ -9,7 +9,7 @@ export const ProductKitchen = () => {
 
    useEffect(() => {
     onSnapshot( 
-      collection(db , 'estado de pedidos'),
+      collection(db , 'order'),
       (snapshot) => {
         //console.log('se ejecuto snapshot')
        // console.log(snapshot.docs[0].data());

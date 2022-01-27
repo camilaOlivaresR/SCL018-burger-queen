@@ -9,7 +9,7 @@ import { MenuContext } from "./Order";
 
 
 
-export const Product = ({ data }) => {
+export const Product = ({data}) => {
 
   const context = useContext(MenuContext);
   const totalCartCount = context.state.cart.reduce(
@@ -54,8 +54,8 @@ export const Product = ({ data }) => {
           {/* el metodo map nos permitira recorrer todos los productos y 
       nos retorna un arreglo final mostrar en pantalla, por cada elemento obtenemos img-name-price*/}
 
-          {product.map((product) => (
-            <main>
+          {product.map((product, index) => (
+            <main key={index}>
               <Imagen>
                 <img className="img" src={product.img} />
               </Imagen>

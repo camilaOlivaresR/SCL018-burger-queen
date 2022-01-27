@@ -14,7 +14,8 @@ const Cart = () => {
 
   return (
     <div>
-      <InputClient />
+     <InputClient/>
+      
       <h4>Productos-Precio</h4>
       {context.state.cart.map((product) => (
 
@@ -23,25 +24,25 @@ const Cart = () => {
           <p>{product.price}</p>
           <p>total:{(product.price * product.count)}</p>
           <p>total de {product.count}</p>
+         
 
           <button onClick={() => context.decrease(product.id)}>-</button>
           <button onClick={() => context.removeFromCart(product.id)}>eliminar</button>
           <button onClick={() => context.increase(product.id)}>+</button>
-          
-        </div>
-
-))}
+          </div>
+          ))}
+       
     <div>
         <span> cantidad de productos: {totalCartCount}</span>
         <h2> total carrito:{totalCartAmount}</h2>
        </div>
      <div>
-      <button onClick={() => context.setState({})}>borrar orden</button>
+      <button onClick={() => context.setState()}>borrar orden</button>
         <button type="submit">
           Enviar a cocina
         </button>
         </div>   
-     
+        
     </div>
   );
 };
