@@ -1,14 +1,19 @@
-import { useState } from "react"
+import { useState , useContext } from "react"
 import {db , app} from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { MenuContext } from "./Order";
 
 
 
 
  export const  InputClient  = () => {
+
+  const context = useContext(MenuContext);
+
    const [client , cambiarClient] = useState('');
    const [table , cambiarMesa] = useState('');
-   const [order , cambiarOrder] = useState('');
+
+
 {/* 
 const onChange = (evento) => {
   if( evento.target.name=== 'client'){
@@ -25,7 +30,11 @@ const onChange = (evento) => {
       await addDoc(collection(db, "order"), {
         nombre: client,
         mesa: table,
-        pedido: order,
+        product : context.state,
+      
+        
+
+        
 
         
       
@@ -37,7 +46,7 @@ const onChange = (evento) => {
   }
     cambiarClient('');
     cambiarMesa('');
-    cambiarOrder('');
+ 
     
   }
 
@@ -64,8 +73,7 @@ const onChange = (evento) => {
           min="1" max="6"
           placeholder="1-6"
         />
-         
-            
+           
 
         </div>
         <button type="submit"  >

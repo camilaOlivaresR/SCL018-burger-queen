@@ -63,13 +63,10 @@ export const Order = () => {
       <Contenedor>
         <Link to="/"><button>Salir</button></Link>
         <Menu>
-
           <Product data= {data} />
-
         </Menu>
 
         <Carrito>
-
           <Cart />
 
         </Carrito>

@@ -1,10 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { InputClient } from "./InputData";
 import { MenuContext } from "./Order";
+import { db } from "../../firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { useState } from "react/cjs/react.development";
 
 //carrito de compas es un estado que va cambiando
 const Cart = () => {
   const context = useContext(MenuContext);
+  const cartItems = context.state.cart;
+
 
   const totalCartAmount = context.state.cart
     .reduce((total, product) => (total = total + product.price * product.count), 0);
@@ -12,37 +17,92 @@ const Cart = () => {
   const totalCartCount = context.state.cart.reduce(
     (total, product) => (total = total + product.count), 0);
 
+  const [client, cambiarClient] = useState('');
+  const [table, cambiarMesa] = useState('');
+
+
+  const getDate = () => {
+    const hoy = new Date();
+    const fecha = `${hoy.getDate()} - ${(hoy.getMonth() + 1)} - ${hoy.getFullYear()}`;
+    const hora = `${hoy.getHours()}:${hoy.getMinutes()}:${hoy.getSeconds()}`;
+    const fechaYHora = `${fecha} ${hora}`;
+    return fechaYHora;
+
+  };
+
+  const addData = async (e) => {
+    e.preventDefault();
+    console.log("funcionando addData");
+    try {
+      const docRef = await addDoc(collection(db, 'order'), {
+        nombre: client,
+        mesa: table,
+        Total: totalCartAmount,
+        Time: getDate(),
+        Order: cartItems,
+        Terminado: 'Pedido esperando',
+      });
+      console.log('Document written with ID: ', docRef.id);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
+
+  };
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+
+
+
   return (
     <div>
-     <InputClient/>
-      
-      <h4>Productos-Precio</h4>
-      {context.state.cart.map((product) => (
+      <form onSubmit={(e) => addData(e)}>
+        <p>Cliente : </p>
+        <input
+          type="text"
+          name="client"
+          value={client}
+          onChange={(e) => cambiarClient(e.target.value)}
+        />
+
+        <p># Mesa : </p>
+        <input
+          type="number"
+          name="table"
+          value={table}
+          onChange={(e) => cambiarMesa(e.target.value)}
+          min="1" max="6"
+          placeholder="1-6"
+        />
+
+        <h4>Productos-Precio</h4>
+        {cartItems.map((product) => (
+          <div key={product.id} >
+            <p>{product.name}</p>
+            <p>{product.price}</p>
+            <p>total:{(product.price * product.count)}</p>
+            <p>total de {product.count}</p>
+
+
+            <button onClick={() => context.decrease(product.id)}>-</button>
+            <button onClick={() => context.removeFromCart(product.id)}>eliminar</button>
+            <button onClick={() => context.increase(product.id)}>+</button>
+          </div>
+        ))}
 
         <div>
-          <p>{product.name}</p>
-          <p>{product.price}</p>
-          <p>total:{(product.price * product.count)}</p>
-          <p>total de {product.count}</p>
-         
-
-          <button onClick={() => context.decrease(product.id)}>-</button>
-          <button onClick={() => context.removeFromCart(product.id)}>eliminar</button>
-          <button onClick={() => context.increase(product.id)}>+</button>
-          </div>
-          ))}
-       
-    <div>
-        <span> cantidad de productos: {totalCartCount}</span>
-        <h2> total carrito:{totalCartAmount}</h2>
-       </div>
-     <div>
-      <button onClick={() => context.setState()}>borrar orden</button>
-        <button type="submit">
-          Enviar a cocina
-        </button>
-        </div>   
-        
+          <span> cantidad de productos: {totalCartCount}</span>
+          <h2> total carrito:{totalCartAmount}</h2>
+        </div>
+        <div>
+          <button onClick={() => context.setState()}>borrar orden</button>
+          <button type="submit" >
+            Enviar a cocina
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
