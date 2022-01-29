@@ -5,6 +5,7 @@ import "./Listproduct.css"
 import styled from "styled-components";
 import { useState, useContext } from "react";
 import { MenuContext } from "./Order";
+import { Header } from "../commons/Header";
 
 
 
@@ -12,10 +13,7 @@ import { MenuContext } from "./Order";
 export const Product = ({data}) => {
 
   const context = useContext(MenuContext);
-  const totalCartCount = context.state.cart.reduce(
-    (total, product) => (total = total + product.count),
-    0
-  );
+ 
 
 
   const View = data.filter((elem) => elem.type === "Dulces");
@@ -40,37 +38,18 @@ export const Product = ({data}) => {
   };
   return (
     <article className="productsList">
-      <nav>
-        <ul>
-          <div>
-            <li onClick={() => productsType("Dulces")}>Dulces</li>
-            <li onClick={() => productsType("Platos de fondo")}>Plato de Fondo</li>
-            <li onClick={() => productsType("Para tomar")}>Para Tomar </li>
-          </div>
-        </ul>
-      </nav>
+      <Header productsType={productsType}/>
       <article>
         <ul className="cards">
-          {/* el metodo map nos permitira recorrer todos los productos y 
-      nos retorna un arreglo final mostrar en pantalla, por cada elemento obtenemos img-name-price*/}
-
           {product.map((product, index) => (
             <main key={index}>
               <Imagen>
                 <img className="img" src={product.img} />
               </Imagen>
-              <div>
                 <p>{product.id}</p>
                 <p>{product.name}</p>
                 <p>${product.price}</p>
-
-                <button
-                  onClick={() => context.addProduct(product)}
-                >
-                  Agregar a mi Menu
-                </button>
-              </div>
-
+                <button onClick={() => context.addProduct(product)}>Agregar a mi Menu</button>
             </main>
           ))}
         </ul>

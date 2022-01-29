@@ -61,14 +61,16 @@ export const Order = () => {
   return (
     <MenuContext.Provider value={deger}>
       <Contenedor>
-        <Link to="/"><button>Salir</button></Link>
+      
         <Menu>
+        
+       
           <Product data= {data} />
+          
         </Menu>
 
         <Carrito>
           <Cart />
-
         </Carrito>
 
 
@@ -96,12 +98,13 @@ const Menu = styled.main`
       `;
 
 const Carrito = styled.aside`
+display: flex;
 width: 40%;
 height: 50%;
 padding-left: 20px;
 margin-left: 15px;
 padding-bottom: 15px;
-float: right;
 font-style: italic;
 background-color: lightgray;
+margin-top: 170px;
       `;

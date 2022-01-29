@@ -1,88 +1,85 @@
-import { db  } from "../../firebase";
-import { collection , onSnapshot } from "firebase/firestore";
+import { db } from "../../firebase";
+import { collection, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { Order } from "../waitress/Order";
 
 
 
 export const ProductKitchen = () => {
-   const [ pedido , cambiarPedido] = useState([]);
+  const [pedido, cambiarPedido] = useState([]);
 
-   useEffect(() => {
-    onSnapshot( 
-      collection(db , 'order'),
+  useEffect(() => {
+    onSnapshot(
+      collection(db, 'order'),
       (snapshot) => {
         //console.log('se ejecuto snapshot')
-       // console.log(snapshot.docs[0].data());
-       const arregloProductos =  snapshot.docs.map((documento)=> {
-        return {...documento.data(), id: documento.id }
+        // console.log(snapshot.docs[0].data());
+        const arregloProductos = snapshot.docs.map((documento) => {
+          return { ...documento.data(), id: documento.id }
 
-       })
-       cambiarPedido(arregloProductos);
+        })
+        cambiarPedido(arregloProductos);
       }
-      );
-   }, []);
-    
-    return (
-        <div style={{ textAlign: "left" }}>
-           {pedido.map((pedido) =>(
-               <main>
-               <div >
-                   <p>{pedido.cliente} </p>
-                   </div>
-                   <div>
-                       <li>{ pedido.pedido}</li>
-                       <p>{ pedido.total}</p>
-                       <p>{pedido.estado}</p>
-                   </div>
-                  
-                       
-                   
-               
-           </main>
-           ))}
-        </div>
-    )
+    );
+  }, []);
+
+  return (
+    <div>
+      {pedido.map((orden, index) => (
+        < main key={index}>
+        <div>
+          <p>Mesa :{orden.mesa} </p>
+          <p>Nombre :{orden.nombre} </p>
+          </div>
+           <p>Pedido:
+            {orden.order.map(orden => <li>{orden.count}{orden.name}</li>)}
+            </p>
+             <p> Total :{orden.total}</p>
+          </main>
+      ))}
+    </div>
+  )
 }
 
 
 
-  /*
-  const [data, setData] = useState([]);
+/*
+const [data, setData] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
+   
+        setData([...data]);
      
-          setData([...data]);
-       
-    }, []);
-  */
+  }, []);
+*/
 
-    /*
-     useEffect(() => {
-        const orderCollection = db.collection('Productos').orderBy('orderDate', 'desc');
-        const unsuscribe = orderCollection.onSnapshot(snapshot => {
-          const array = [];
-          snapshot.forEach(doc => {
-            const element = doc.data();
-            const id = doc.id;
-            array.push({...element, id});
-          })
-          setData(array);
-        });
-        return () => unsuscribe;
-      }, []);
-    
-    */
-   /*
-    <main>
-                <div className="div">
-                    <img src={img} />
-                    <div>
-                        <p>{ name }</p>
-                        <p>{ price}</p>
-                    </div>
-                    <button>
-                        Agregar
-                    </button>
-                </div>
-            </main>
-   */
+/*
+ useEffect(() => {
+    const orderCollection = db.collection('Productos').orderBy('orderDate', 'desc');
+    const unsuscribe = orderCollection.onSnapshot(snapshot => {
+      const array = [];
+      snapshot.forEach(doc => {
+        const element = doc.data();
+        const id = doc.id;
+        array.push({...element, id});
+      })
+      setData(array);
+    });
+    return () => unsuscribe;
+  }, []);
+ 
+*/
+/*
+ <main>
+             <div className="div">
+                 <img src={img} />
+                 <div>
+                     <p>{ name }</p>
+                     <p>{ price}</p>
+                 </div>
+                 <button>
+                     Agregar
+                 </button>
+             </div>
+         </main>
+*/

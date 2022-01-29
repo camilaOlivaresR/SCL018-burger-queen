@@ -30,6 +30,7 @@ const Cart = () => {
 
   };
 
+
   const addData = async (e) => {
     e.preventDefault();
     console.log("funcionando addData");
@@ -37,10 +38,10 @@ const Cart = () => {
       const docRef = await addDoc(collection(db, 'order'), {
         nombre: client,
         mesa: table,
-        Total: totalCartAmount,
-        Time: getDate(),
-        Order: cartItems,
-        Terminado: 'Pedido esperando',
+        total: totalCartAmount,
+        time: getDate(),
+        order: cartItems,
+        terminado: 'Pedido esperando',
       });
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
@@ -78,13 +79,12 @@ const Cart = () => {
         />
 
         <h4>Productos-Precio</h4>
-        {cartItems.map((product) => (
-          <div key={product.id} >
+        {cartItems.map((product , index) => (
+          <div key={index} >
             <p>{product.name}</p>
             <p>{product.price}</p>
             <p>total:{(product.price * product.count)}</p>
             <p>total de {product.count}</p>
-
 
             <button onClick={() => context.decrease(product.id)}>-</button>
             <button onClick={() => context.removeFromCart(product.id)}>eliminar</button>
@@ -97,12 +97,12 @@ const Cart = () => {
           <h2> total carrito:{totalCartAmount}</h2>
         </div>
         <div>
-          <button onClick={() => context.setState()}>borrar orden</button>
           <button type="submit" >
             Enviar a cocina
           </button>
         </div>
       </form>
+
     </div>
   );
 };
