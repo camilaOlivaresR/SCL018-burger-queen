@@ -10,10 +10,10 @@ import { Header } from "../commons/Header";
 
 
 
-export const Product = ({data}) => {
+export const Product = ({ data }) => {
 
   const context = useContext(MenuContext);
- 
+
 
 
   const View = data.filter((elem) => elem.type === "Dulces");
@@ -37,29 +37,69 @@ export const Product = ({data}) => {
     }
   };
   return (
-    <article className="productsList">
-      <Header productsType={productsType}/>
-      <article>
-        <ul className="cards">
-          {product.map((product, index) => (
-            <main key={index}>
-              <Imagen>
-                <img className="img" src={product.img} />
-              </Imagen>
-                <p>{product.id}</p>
-                <p>{product.name}</p>
-                <p>${product.price}</p>
-                <button onClick={() => context.addProduct(product)}>Agregar a mi Menu</button>
-            </main>
-          ))}
+    <>
+      <section>
+        <ul>
+          <li onClick={() => productsType("Dulces")}>Dulces</li>
+          <li onClick={() => productsType("Platos de fondo")}>Plato de Fondo</li>
+          <li onClick={() => productsType("Para tomar")}>Para Tomar </li>
         </ul>
-      </article>
-    </article>
+      </section>
+     
+        {product.map((product, index) => (
+          <Articulo key={index}>
+            <Imagen src={product.img} />
+            <p>{product.id}</p>
+            <p>{product.name}</p>
+            <p>${product.price}</p>
+            <button onClick={() => context.addProduct(product)}>Agregar a mi Menu</button>
+          </Articulo>
+        ))}
+     
+    </>
   )
 }
 
-const Imagen = styled.div`
-height: 25vh;
+
+
+
+
+
+const Articulo = styled.section`
+
+background-color: #006400;
+text-align: center;
+color: cornsilk;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+border-radius: 3% 3% 3% 3%;
+font-size: 12px;
+width: 20%;
+height: auto;
+margin: 1em;
+width: 30%;
+display: inherit;
+align-items: inherit;
+justify-content: inherit;
+
+
+`;
+const Imagen = styled.img`
+
 width: 25vh;
-align-content: center;
+height: 25vh;
+width: 100%;
+display: inherit;
+align-items: inherit;
+justify-content: inherit;
+
+`;
+const Section = styled.section`
+margin-left: -15px;
+margin-right: -15px;
+display: flex;
+flex-wrap: wrap;
+flex-grow: 0;
+flex-shrink: 0;
+align-items: normal;
+justify-content: flex-start;
 `;

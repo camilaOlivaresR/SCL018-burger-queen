@@ -4,21 +4,13 @@ import { Link } from "react-router-dom";
 export const Header = ({ productsType }) => {
     return (
         <Headers>
-            <Title>
-                <a href="/">
-                    Vegan Queen
-                </a>
-            </Title>
-            <nav>
-                <ul>
-                    <li onClick={() => productsType("Dulces")}>Dulces</li>
-                    <li onClick={() => productsType("Platos de fondo")}>Plato de Fondo</li>
-                    <li onClick={() => productsType("Para tomar")}>Para Tomar </li>
-                </ul>
-                
-                <Link to="/"><button>Salir</button></Link>
-                <button><Link to="/kitchen">cocina</Link></button>
-            </nav>
+
+            <H1>Vegean Queen</H1>
+            <Span><Link to="/waitress" class="active">Mesera</Link></Span>
+            <Span> <Link to="/kitchen">Cocina</Link></Span>
+            <Span> <Link to="/">Salir</Link></Span>
+
+
         </Headers>
     )
 };
@@ -26,24 +18,39 @@ export const Header = ({ productsType }) => {
 
 
 const Headers = styled.header`
-background: #fff;
+background-color:  #ffffff;
+color: #f6f3f3;
+height: 15vh;
 display: flex;
 align-items: center;
-height: 30vh;
-width: 1000px;
+font-family: Lobster Two,cursive;
+color: #f6f3f3;
+font-family: Lobster Two,cursive;
 
 
 `;
-const Title = styled.span`
+const Span = styled.span`
+width: 100%;
 display: flex;
-font-size: 1.5rem;
-text-align: center;
-height:90vh;
-line-height: 90vh;
-color: #fcedd8;
+align-items: inherit;
+justify-content: inherit;
+margin-left: 10vw;
 
-   font-family: 'Niconne', cursive;
-font-weight: 700;
+;
 
         
+`;
+
+const Nav = styled.nav`
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+`;
+const H1 = styled.h1`
+margin-left: 5vw;
+color: #006400;
+
 `;

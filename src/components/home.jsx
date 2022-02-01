@@ -9,7 +9,7 @@ export const Home = () => {
         <Main>
             <Container>
             <h1>Bienvenides al sistema de Pedidos</h1>
-            <h2>CoffeeQuens</h2>
+            <h2>Vegan Queen</h2>
             <div>
             <button><Link to="/kitchen">cocina</Link></button>
             <button><Link to="/waitress">mesera</Link></button>
@@ -20,7 +20,7 @@ export const Home = () => {
 }
  const Main =styled.div`
  text-align: center;
- background: green;
+ background:  #9ACD32;
  height: 100vh;
  width: auto;
  `;

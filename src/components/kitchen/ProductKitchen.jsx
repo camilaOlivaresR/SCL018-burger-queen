@@ -1,17 +1,20 @@
 import { db } from "../../firebase";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query ,doc, updateDoc} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Order } from "../waitress/Order";
+import styled from "styled-components"
+
 
 
 
 export const ProductKitchen = () => {
   const [pedido, cambiarPedido] = useState([]);
 
+  
+
   useEffect(() => {
-    onSnapshot(
-      collection(db, 'order'),
-      (snapshot) => {
+    const q = query(collection(db, "order") ,orderBy('time', 'desc'));
+    onSnapshot( q,   (snapshot) => {
         //console.log('se ejecuto snapshot')
         // console.log(snapshot.docs[0].data());
         const arregloProductos = snapshot.docs.map((documento) => {
@@ -19,29 +22,66 @@ export const ProductKitchen = () => {
 
         })
         cambiarPedido(arregloProductos);
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }, []);
+   {/*onst [estado, nuevoEstado] = useState(estado);
+
+  const actualizarEstado = (e) => {
+    e.preventDefault();
+     updateDoc(doc(db, 'order', id), {
+       estado: nuevoEstado
+     });
+  }*/}
 
   return (
-    <div>
-      {pedido.map((orden, index) => (
-        < main key={index}>
-        <div>
+    <>
+      
+    <Img>
+      {pedido.map((orden, index ) => (
+        <Poster key={index}>
           <p>Mesa :{orden.mesa} </p>
           <p>Nombre :{orden.nombre} </p>
-          </div>
+         
            <p>Pedido:
-            {orden.order.map(orden => <li>{orden.count}{orden.name}</li>)}
+            {orden.order.map(orden => <li key={orden.id}>{orden.count}-{orden.name}</li>)}
             </p>
              <p> Total :{orden.total}</p>
-          </main>
+             <p>Estado :{orden.estado} </p>
+             <button>Listo</button>
+          </Poster>
       ))}
-    </div>
+    </Img>
+    </>
   )
 }
+const Img = styled.div`
+
+display: flex; 
+flex-flow: row wrap; 
+justify-content: space-evenly;
+align-content: space-around;
+margin: auto;
+background:  #9ACD32;
 
 
+`;
+const Poster = styled.section`
+
+background-color: #006400;
+text-align: center;
+color: cornsilk;
+border-radius: 3% 3% 3% 3%;
+font-size: 12px;
+width: 20%;
+height: auto;
+margin: 1em;
+
+
+`;
 
 /*
 const [data, setData] = useState([]);

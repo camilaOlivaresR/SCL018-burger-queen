@@ -6,6 +6,7 @@ import Cart from "./Cart";
 import styled from "styled-components";
 import dataJson from "../../data.json"
 import { useState, createContext } from "react";
+import { Header } from "../commons/Header";
 
 export const MenuContext = createContext();
 
@@ -32,7 +33,7 @@ export const Order = () => {
   const removeFromCart = (id) => {
     setState({
       ...state,
-      cart: state.cart.filter((cartItem) => cartItem.id !== id)
+      cart: state.cart.filter((cartItem) => cartItem.id !== id )
     });
   };
 
@@ -60,19 +61,20 @@ export const Order = () => {
   const deger = { state: state, addProduct, removeFromCart, increase, decrease, data };
   return (
     <MenuContext.Provider value={deger}>
+
+      <Header/>
       <Contenedor>
       
         <Menu>
-        
-       
-          <Product data= {data} />
+        <Product data= {data} />
+    
           
         </Menu>
 
+     
         <Carrito>
           <Cart />
         </Carrito>
-
 
       </Contenedor>
 
@@ -83,28 +85,50 @@ export const Order = () => {
 }
 
 
-const Contenedor = styled.div`
+const Contenedor = styled.main`
      
-display: flex; 
-background: green;
+display: flex;
+flex-flow: row wrap;
+justify-content: flex-start;
+align-content: space-around;
+margin: auto;
+padding-top: 20px;
+background:  #9ACD32;
+
       `;
 
-const Menu = styled.main`
-      width: 50%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+const Menu = styled.div`
+box-sizing: border-box;
+min-height: 1px;
+position: relative;
+padding-left: 15px;
+padding-right: 15px;
+flex: 0 0 62.5%;
+max-width: 62.5%;
+margin-left: 0%;
+right: auto;
+left: auto;
+
+
+
+
 
       `;
 
 const Carrito = styled.aside`
-display: flex;
-width: 40%;
-height: 50%;
-padding-left: 20px;
-margin-left: 15px;
-padding-bottom: 15px;
-font-style: italic;
-background-color: lightgray;
-margin-top: 170px;
+box-sizing: border-box;
+min-height: 1px;
+position: relative;
+padding-left: 15px;
+padding-right: 15px;
+flex: 0 0 33.3333%;
+max-width: 33.3333%;
+margin-left: 0%;
+right: auto;
+left: auto;
+background-color: #e0e0e0;
+box-shadow: 0 1px 5px 0 rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12);
+border-radius: 4px;
+height: 80vh;
+
       `;

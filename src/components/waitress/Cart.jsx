@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { InputClient } from "./InputData";
 import { MenuContext } from "./Order";
 import { db } from "../../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react/cjs/react.development";
 
 //carrito de compas es un estado que va cambiando
@@ -17,18 +17,16 @@ const Cart = () => {
   const totalCartCount = context.state.cart.reduce(
     (total, product) => (total = total + product.count), 0);
 
-  const [client, cambiarClient] = useState('');
-  const [table, cambiarMesa] = useState('');
-
-
   const getDate = () => {
     const hoy = new Date();
     const fecha = `${hoy.getDate()} - ${(hoy.getMonth() + 1)} - ${hoy.getFullYear()}`;
     const hora = `${hoy.getHours()}:${hoy.getMinutes()}:${hoy.getSeconds()}`;
-    const fechaYHora = `${fecha} ${hora}`;
+    const fechaYHora = `Fecha: ${fecha} - Hora: ${hora}`;
     return fechaYHora;
 
   };
+  const [client, cambiarClient] = useState('');
+  const [table, cambiarMesa] = useState('');
 
 
   const addData = async (e) => {
@@ -39,15 +37,18 @@ const Cart = () => {
         nombre: client,
         mesa: table,
         total: totalCartAmount,
-        time: getDate(),
+        time:  getDate(),
         order: cartItems,
-        terminado: 'Pedido esperando',
+        estado: 'Pedido en Preparacion',
+      
       });
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
     }
-
+     cambiarClient('');
+     cambiarMesa('');
+    
   };
 
   useEffect(() => {
@@ -102,7 +103,7 @@ const Cart = () => {
           </button>
         </div>
       </form>
-
+    
     </div>
   );
 };
