@@ -7,12 +7,8 @@ export const DeliveryKitchen = () => {
 
     return (
         <div>
-           <Header/>
-
-                 
-            <ProductKitchen />
-            
-    
+            <div><Header /></div>
+            <div><ProductKitchen /></div>
         </div>
     )
 }

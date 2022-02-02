@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Header = ({ productsType }) => {
+export const Header = () => {
     return (
         <Headers>
 
-            <H1>Vegean Queen</H1>
-            <Span><Link to="/waitress" class="active">Mesera</Link></Span>
+            <H1>Vegan Queen</H1>
+            <Span><Link to="/waitress">Mesera</Link></Span>
             <Span> <Link to="/kitchen">Cocina</Link></Span>
             <Span> <Link to="/">Salir</Link></Span>
 
@@ -18,8 +18,7 @@ export const Header = ({ productsType }) => {
 
 
 const Headers = styled.header`
-background-color:  #ffffff;
-color: #f6f3f3;
+background-color:  #589d62;
 height: 15vh;
 display: flex;
 align-items: center;
@@ -51,6 +50,6 @@ z-index: 1;
 `;
 const H1 = styled.h1`
 margin-left: 5vw;
-color: #006400;
+color: #fd7c84;
 
 `;

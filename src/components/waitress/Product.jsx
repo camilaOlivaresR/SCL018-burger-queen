@@ -52,7 +52,7 @@ export const Product = ({ data }) => {
             <p>{product.id}</p>
             <p>{product.name}</p>
             <p>${product.price}</p>
-            <button onClick={() => context.addProduct(product)}>Agregar a mi Menu</button>
+            <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
           </Articulo>
         ))}
      

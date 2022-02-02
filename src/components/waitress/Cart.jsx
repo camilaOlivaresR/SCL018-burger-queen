@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { InputClient } from "./InputData";
 import { MenuContext } from "./Order";
 import { db } from "../../firebase";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp, doc } from "firebase/firestore";
 import { useState } from "react/cjs/react.development";
 
 //carrito de compas es un estado que va cambiando
@@ -39,7 +39,7 @@ const Cart = () => {
         total: totalCartAmount,
         time:  getDate(),
         order: cartItems,
-        estado: 'Pedido en Preparacion',
+        estado: 'Cocinando',
       
       });
       console.log('Document written with ID: ', docRef.id);
@@ -48,7 +48,7 @@ const Cart = () => {
     }
      cambiarClient('');
      cambiarMesa('');
-    
+    context.removeAll();
   };
 
   useEffect(() => {
@@ -87,9 +87,10 @@ const Cart = () => {
             <p>total:{(product.price * product.count)}</p>
             <p>total de {product.count}</p>
 
-            <button onClick={() => context.decrease(product.id)}>-</button>
-            <button onClick={() => context.removeFromCart(product.id)}>eliminar</button>
-            <button onClick={() => context.increase(product.id)}>+</button>
+            <li onClick={() => context.decrease(product.id)}>-</li>
+            <li onClick={() => context.removeFromCart(product.id)}>eliminar</li>
+            <li onClick={() => context.increase(product.id)}>+</li>
+         
           </div>
         ))}
 
@@ -98,6 +99,7 @@ const Cart = () => {
           <h2> total carrito:{totalCartAmount}</h2>
         </div>
         <div>
+        
           <button type="submit" >
             Enviar a cocina
           </button>
