@@ -25,6 +25,7 @@ export const Product = ({ data }) => {
       case "Dulces":
         const sweets = data.filter((elem) => elem.type === option);
         cambiarProductos(sweets);
+        console.log(sweets);
         break;
       case "Platos de fondo":
         const main = data.filter((elem) => elem.type === option);
@@ -40,9 +41,9 @@ export const Product = ({ data }) => {
     <>
       <section>
         <ul>
-          <li onClick={() => productsType("Dulces")}>Dulces</li>
-          <li onClick={() => productsType("Platos de fondo")}>Plato de Fondo</li>
-          <li onClick={() => productsType("Para tomar")}>Para Tomar </li>
+          <button onClick={() => productsType("Dulces")}>Dulces</button>
+          <button onClick={() => productsType("Platos de fondo")}>Plato de Fondo</button>
+          <button onClick={() => productsType("Para tomar")}>Para Tomar </button>
         </ul>
       </section>
      

@@ -39,7 +39,7 @@ const Cart = () => {
         total: totalCartAmount,
         time:  getDate(),
         order: cartItems,
-        estado: 'Cocinando',
+        estado: {estado: 'Cocinando'},
       
       });
       console.log('Document written with ID: ', docRef.id);

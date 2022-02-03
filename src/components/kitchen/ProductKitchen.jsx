@@ -60,6 +60,7 @@ justify-content: space-evenly;
 align-content: space-around;
 margin: auto;
 background: #cfcdcb;
+
 `;
 
 
