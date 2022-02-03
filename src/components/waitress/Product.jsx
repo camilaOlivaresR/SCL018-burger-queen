@@ -13,6 +13,7 @@ import { Header } from "../commons/Header";
 export const Product = ({ data }) => {
 
   const context = useContext(MenuContext);
+  const [sesion , cambiarEstadoSesion] = useState(true);
 
 
 
@@ -35,17 +36,27 @@ export const Product = ({ data }) => {
         const drinks = data.filter((elem) => elem.type === option);
         cambiarProductos(drinks);
         break;
+        default:
     }
   };
   return (
     <>
-      <section>
+    {sesion === true ?
+    <div>
+      <button onClick={() => cambiarEstadoSesion(false)}>MENU</button>
+    
+   
+      <section >
+         
         <ul>
           <button onClick={() => productsType("Dulces")}>Dulces</button>
           <button onClick={() => productsType("Platos de fondo")}>Plato de Fondo</button>
           <button onClick={() => productsType("Para tomar")}>Para Tomar </button>
         </ul>
       </section>
+      
+     
+
      
         {product.map((product, index) => (
           <Articulo key={index}>
@@ -56,7 +67,13 @@ export const Product = ({ data }) => {
             <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
           </Articulo>
         ))}
-     
+        </div>  
+        :
+        <div>
+        <p>No has agregado Comidita</p>
+        <button onClick={()=>cambiarEstadoSesion(true) }>MENU </button>
+      </div>
+      }
     </>
   )
 }

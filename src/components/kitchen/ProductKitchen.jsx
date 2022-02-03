@@ -1,9 +1,8 @@
 import { db } from "../../firebase";
 import { collection, onSnapshot, orderBy, query, doc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { Order } from "../waitress/Order";
 import styled from "styled-components"
-import Update from "../commons/Update";
+import Update from "./Update";
 
 
 
@@ -28,13 +27,14 @@ export const ProductKitchen = () => {
     );
   }, []);
 
-  
+  const nwEstado = pedido.filter((elem) => elem.estado.estado === "Cocinando");
+
 
   return (
-    pedido.length > 0 &&
+    nwEstado.length > 0 &&
       <Img>
       
-          {pedido.map((orden) => (
+          {nwEstado .map((orden) => (
 
             <Update 
             key={orden.id}

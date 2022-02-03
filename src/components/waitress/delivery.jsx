@@ -15,7 +15,7 @@ import dataJson from "../../data.json"
 import { useState } from "react";
 
 
-export const Order = () => {
+export const OrderExp = () => {
   const data = dataJson.productos;
   const [pedido, cambiarPedido] = useState([]);
 

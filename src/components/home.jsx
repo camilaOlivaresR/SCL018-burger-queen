@@ -3,34 +3,43 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { InputClient } from "./waitress/InputData";
 import "../App.css"
+import logo from "../img/logo3.png";
+
 
 export const Home = () => {
     return (
+   <Container>
+       {/* */}
         <Main>
-            <Container>
-            <H1>Bienvenides al sistema de Pedidos</H1>
-            <H1>Vegan Queen</H1>
-            
+            <DivBotones>
+           
+            <Img src={logo} alt="" />
+         
           <Boton><Link to="/kitchen">cocina</Link></Boton>
           <Boton><Link to="/waitress">mesera</Link></Boton>
-           
-            </Container>
+          </DivBotones>
+        
         </Main>
+        </Container>
     )
 }
- const Main =styled.div`
- text-align: center;
+ const Container =styled.section`
+
  background:  #589d62;
- height: auto;
- width: auto;
+ hight: 100vh;
+
+
  `;
 
- const Container = styled.main`
+ const  Main = styled.main`
  display: flex;
  flex-direction: column;
  justify-content: center;
- padding: 30vh;
  text-align: center;
+ background:  #589d62;
+ hight: 100%
+
+ 
      
  `;
  const H1 = styled.h1`
@@ -62,4 +71,18 @@ display: flex;
     width: 250px;
     
 
+`;
+const DivBotones = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: 10vh;
+margin-bottom: 18vh;
+`;
+const Img = styled.img`
+
+width: 70vh;
+height: 60vh;
+text-align: center;
 `;

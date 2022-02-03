@@ -7,8 +7,8 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
 
 
     const [status, setStatus] = useState({
-       //estado: 'Cocinando'
-       estado: {estado: 'Cocinando'}
+        //estado: 'Cocinando'
+        estado: { estado: 'Cocinando' }
 
     });
 
@@ -18,7 +18,7 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
             estado: 'Listo para Servir'
         })
     }
-    
+
 
     const actualizarEstado = async (e) => {
         e.preventDefault();
@@ -42,14 +42,13 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
                     <p>{time}</p>
                     <p>Mesa :{mesa} </p>
                     <p>Nombre :{nombre} </p>
-
                     <span>Pedido:
                         {order.map(orden => <li key={orden.id}>{orden.count}-{orden.name}</li>)}
                     </span>
                     <p> Total :{total}</p>
-                  {/*   <p>{JSON.stringify({estado})}</p>*/}
+                    {/*   <p>{JSON.stringify({estado})}</p>*/}
                     <P>{estado.estado}</P>
-                 
+
                     <button type='submit' onClick={changeStatus} >Ok</button>
                 </div>
             </form>
@@ -77,7 +76,7 @@ margin: 1em;
 
 
 `;
- const P = styled.p`
+const P = styled.p`
  color: red;
  font-weight: bold;
 

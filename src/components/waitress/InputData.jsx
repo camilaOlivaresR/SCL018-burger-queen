@@ -31,6 +31,7 @@ const onChange = (evento) => {
         nombre: client,
         mesa: table,
         product : context.state,
+        
       
         
 

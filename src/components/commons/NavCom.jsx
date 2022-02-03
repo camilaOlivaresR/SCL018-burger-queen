@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Product } from "../kitchen/ProductKitchen";
+
 
 
 
@@ -11,9 +11,8 @@ export const Out = ()=>{
       <>
       {sesion === true ?
     <div>
-     
-      <button onClick={() => cambiarEstadoSesion(false)}>Desayuno</button>
-      <Product/>
+      <button onClick={() => cambiarEstadoSesion(false)}>MENU</button>
+    
     </div>  
     :
     <div>
@@ -21,7 +20,6 @@ export const Out = ()=>{
       <button onClick={()=>cambiarEstadoSesion(true) }> Iniciar sesion</button>
     </div>
     }
-    
         <nav className="navServer">
           <ul>
             <li><Link to="/waitress/hacer-pedidos">Realizar pedidos</Link></li>

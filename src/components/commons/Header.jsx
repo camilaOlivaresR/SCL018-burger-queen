@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import logo from "../../img/logo.png"
 
 export const Header = () => {
     return (
         <Headers>
 
-            <H1>Vegan Queen</H1>
+            <Img src={logo} alt="" />
             <Span><Link to="/waitress">Mesera</Link></Span>
-            <Span> <Link to="/kitchen">Cocina</Link></Span>
-            <Span> <Link to="/">Salir</Link></Span>
+            <Span><Link to="/boletas">Boletas</Link></Span>
+            <Span><Link to="/kitchen">Cocina</Link></Span>
+            <Span><Link to="/">Salir</Link></Span>
 
 
         </Headers>
@@ -48,8 +50,9 @@ min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 z-index: 1;
 `;
-const H1 = styled.h1`
-margin-left: 5vw;
-color: #fd7c84;
+const Img = styled.img`
+margin-top: 8vh;
+height: 25vh;
+weight: 20vh;
 
 `;
