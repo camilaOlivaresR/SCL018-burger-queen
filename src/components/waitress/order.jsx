@@ -65,9 +65,9 @@ export const Order = () => {
       cart: []
     })
   }
-  const deger = { state: state, addProduct, removeFromCart, increase, decrease, removeAll };
+  const sum = { state: state, addProduct, removeFromCart, increase, decrease, removeAll };
   return (
-    <MenuContext.Provider value={deger}>
+    <MenuContext.Provider value={sum}>
 
       <Header/>
       <Contenedor>

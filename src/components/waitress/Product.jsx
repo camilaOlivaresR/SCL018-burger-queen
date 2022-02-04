@@ -13,12 +13,12 @@ import { Header } from "../commons/Header";
 export const Product = ({ data }) => {
 
   const context = useContext(MenuContext);
-  const [sesion , cambiarEstadoSesion] = useState(true);
+  
 
 
 
   const View = data.filter((elem) => elem.type === "Dulces");
-  const [product, cambiarProductos] = useState(View);
+  const [product, cambiarProductos] = useState([]);
 
   const productsType = (option) => {
     // eslint-disable-next-line default-case
@@ -39,13 +39,10 @@ export const Product = ({ data }) => {
         default:
     }
   };
+
+
   return (
     <>
-    {sesion === true ?
-    <div>
-      <button onClick={() => cambiarEstadoSesion(false)}>MENU</button>
-    
-   
       <section >
          
         <ul>
@@ -67,13 +64,8 @@ export const Product = ({ data }) => {
             <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
           </Articulo>
         ))}
-        </div>  
-        :
-        <div>
-        <p>No has agregado Comidita</p>
-        <button onClick={()=>cambiarEstadoSesion(true) }>MENU </button>
-      </div>
-      }
+    
+
     </>
   )
 }
