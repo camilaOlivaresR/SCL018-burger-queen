@@ -1,29 +1,22 @@
 import { Link } from "react-router-dom";
-//import imagen
 import styled from "styled-components";
-import { InputClient } from "./waitress/InputData";
-import "../App.css"
 import logo from "../img/logo3.png";
 
 
 export const Home = () => {
     return (
-   <Container>
-       {/* */}
-        <Main>
-            <DivBotones>
-           
-            <Img src={logo} alt="" />
-         
-          <Boton><Link to="/kitchen">cocina</Link></Boton>
-          <Boton><Link to="/waitress">mesera</Link></Boton>
-          </DivBotones>
-        
-        </Main>
+        <Container>
+            <Main>
+                <DivBotones>
+                    <Img src={logo} alt="" />
+                    <Boton><Link to="/kitchen">cocina</Link></Boton>
+                    <Boton><Link to="/waitress">mesera</Link></Boton>
+                </DivBotones>
+            </Main>
         </Container>
     )
 }
- const Container =styled.section`
+const Container = styled.section`
 
  background:  #589d62;
  hight: 100vh;
@@ -31,7 +24,7 @@ export const Home = () => {
 
  `;
 
- const  Main = styled.main`
+const Main = styled.main`
  display: flex;
  flex-direction: column;
  justify-content: center;
@@ -42,7 +35,7 @@ export const Home = () => {
  
      
  `;
- const H1 = styled.h1`
+const H1 = styled.h1`
 margin-left: 5vw;
 color: #cfcdcb;
 font-family: Lobster Two,cursive;

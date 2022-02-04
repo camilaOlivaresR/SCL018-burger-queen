@@ -7,7 +7,7 @@ import Update from "./Update";
 
 
 export const ProductKitchen = () => {
- 
+
   const [pedido, cambiarPedido] = useState([]);
 
   useEffect(() => {
@@ -32,24 +32,20 @@ export const ProductKitchen = () => {
 
   return (
     nwEstado.length > 0 &&
-      <Img>
-      
-          {nwEstado .map((orden) => (
-
-            <Update 
-            key={orden.id}
-            id={orden.id}
-            time={orden.time}
-            mesa={orden.mesa}
-            nombre={orden.nombre} 
-            estado={orden.estado}
-            total={orden.total}
-            order={orden.order}
-            />
-            
-          ))}
-       
-      </Img>
+    <Img>
+      {nwEstado.map((orden) => (
+        <Update
+          key={orden.id}
+          id={orden.id}
+          time={orden.time}
+          mesa={orden.mesa}
+          nombre={orden.nombre}
+          estado={orden.estado}
+          total={orden.total}
+          order={orden.order}
+        />
+      ))}
+    </Img>
   )
 }
 const Img = styled.div`

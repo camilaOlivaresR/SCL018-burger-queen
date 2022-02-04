@@ -1,23 +1,11 @@
 
-
-
-import "./Listproduct.css"
 import styled from "styled-components";
 import { useState, useContext } from "react";
 import { MenuContext } from "./Order";
-import { Header } from "../commons/Header";
-
-
-
 
 export const Product = ({ data }) => {
-
   const context = useContext(MenuContext);
-  
 
-
-
-  const View = data.filter((elem) => elem.type === "Dulces");
   const [product, cambiarProductos] = useState([]);
 
   const productsType = (option) => {
@@ -36,7 +24,7 @@ export const Product = ({ data }) => {
         const drinks = data.filter((elem) => elem.type === option);
         cambiarProductos(drinks);
         break;
-        default:
+      default:
     }
   };
 
@@ -44,28 +32,21 @@ export const Product = ({ data }) => {
   return (
     <>
       <section >
-         
         <ul>
           <button onClick={() => productsType("Dulces")}>Dulces</button>
           <button onClick={() => productsType("Platos de fondo")}>Plato de Fondo</button>
           <button onClick={() => productsType("Para tomar")}>Para Tomar </button>
         </ul>
       </section>
-      
-     
-
-     
-        {product.map((product, index) => (
-          <Articulo key={index}>
-            <Imagen src={product.img} />
-            <p>{product.id}</p>
-            <p>{product.name}</p>
-            <p>${product.price}</p>
-            <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
-          </Articulo>
-        ))}
-    
-
+      {product.map((product, index) => (
+        <Articulo key={index}>
+          <Imagen src={product.img} />
+          <p>{product.id}</p>
+          <p>{product.name}</p>
+          <p>${product.price}</p>
+          <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
+        </Articulo>
+      ))}
     </>
   )
 }

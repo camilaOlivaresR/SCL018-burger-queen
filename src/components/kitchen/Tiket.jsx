@@ -7,7 +7,7 @@ import { Header } from "../commons/Header";
 
 
 export const Boleta = () => {
- 
+
   const [stadoBoleta, setStadoBoletas] = useState([]);
 
   useEffect(() => {
@@ -28,38 +28,29 @@ export const Boleta = () => {
   }, []);
 
   const nwBoleta = stadoBoleta.filter((elem) => elem.estado.estado === 'Listo para Servir');
- 
- 
+
+
   return (
     <div>
-    <Header />
+      <Header />
       <Img>
-      
-          {nwBoleta .map((orden) => (
-
-<Poster>
-
-    <div key={orden.id}>
-        <p>{orden.time}</p>
-        <p>Mesa :{orden.mesa} </p>
-        <p>Nombre :{orden.nombre} </p>
-
-        
-        <span>Pedido:
-                        {orden.order.map(orden => <li key={orden.id}>{orden.count}-{orden.name}</li>)}
-                    </span>
-        <p> Total :{orden.total}</p>
-      {/*   <p>{JSON.stringify({estado})}</p>*/}
-        <p>{orden.estado.estado}</p>
-     
-    </div>
-
-</Poster>
-
-          ))}
-       
+        {nwBoleta.map((orden) => (
+          <Poster>
+            <div key={orden.id}>
+              <p>{orden.time}</p>
+              <p>Mesa :{orden.mesa} </p>
+              <p>Nombre :{orden.nombre} </p>
+              <span>Pedido:
+                {orden.order.map(orden => <li key={orden.id}>{orden.count}-{orden.name}</li>)}
+              </span>
+              <p> Total :{orden.total}</p>
+              {/*   <p>{JSON.stringify({estado})}</p>*/}
+              <p>{orden.estado.estado}</p>
+            </div>
+          </Poster>
+        ))}
       </Img>
-      </div>
+    </div>
   )
 }
 const Img = styled.div`

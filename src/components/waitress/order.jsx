@@ -1,6 +1,4 @@
 
-import { Link } from "react-router-dom";
-import { InputClient } from "./InputData";
 import { Product } from "./Product";
 import Cart from "./Cart";
 import styled from "styled-components";
@@ -33,7 +31,7 @@ export const Order = () => {
   const removeFromCart = (id) => {
     setState({
       ...state,
-      cart: state.cart.filter((cartItem) => cartItem.id !== id )
+      cart: state.cart.filter((cartItem) => cartItem.id !== id)
     });
   };
 
@@ -68,43 +66,34 @@ export const Order = () => {
   const sum = { state: state, addProduct, removeFromCart, increase, decrease, removeAll };
   return (
     <MenuContext.Provider value={sum}>
-
-      <Header/>
+      <Header />
       <Contenedor>
-      
         <Menu>
-        <Product data= {data} />
-    
-          
+          <Product data={data} />
         </Menu>
-
-     
         <Carrito>
           <Cart />
         </Carrito>
-
       </Contenedor>
-
     </MenuContext.Provider>
-
-
   )
 }
 
 
-const Contenedor = styled.main`
-     
+const Contenedor = styled.div`
+    
 display: flex;
-flex-flow: row wrap;
+flex-flow:  wrap;
 justify-content: flex-start;
-align-content: space-around;
 margin: auto;
 padding-top: 20px;
 background:  #cfcdcb;
+height: 92vh;
+
 
       `;
 
-const Menu = styled.div`
+const Menu = styled.main`
 box-sizing: border-box;
 min-height: 1px;
 position: relative;
@@ -124,20 +113,17 @@ left: auto;
 
 const Carrito = styled.aside`
 box-sizing: border-box;
-min-height: 1px;
-position: relative;
 padding-left: 15px;
-padding-right: 15px;
-flex: 0 0 33.3333%;
-max-width: 33.3333%;
-margin-left: 0%;
-right: auto;
-left: auto;
-width: auto;
-height: auto;
 background-color: #e0e0e0;
-box-shadow: 0 1px 5px 0 rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12);
-border-radius: 4px;
-height: 50%;
+width: 30vw;
+height: auto;
 
       `;
+
+const Head = styled.header`
+background:  #cfcdcb;
+height: 15vh;
+display: flex;
+align-items: center;
+font-family: Lobster Two,cursive;
+`;

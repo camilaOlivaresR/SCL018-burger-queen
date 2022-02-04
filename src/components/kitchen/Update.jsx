@@ -48,7 +48,6 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
                     <p> Total :{total}</p>
                     {/*   <p>{JSON.stringify({estado})}</p>*/}
                     <P>{estado.estado}</P>
-
                     <button type='submit' onClick={changeStatus} >Ok</button>
                 </div>
             </form>
@@ -60,7 +59,6 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
 };
 
 export default Update;
-
 
 
 const Poster = styled.section`

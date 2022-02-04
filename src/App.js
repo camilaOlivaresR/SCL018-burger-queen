@@ -1,13 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-/*  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link */
 import { Home } from "./components/Home"
 import { Order } from "./components/waitress/Order"
 import { DeliveryKitchen } from "./components/kitchen/DeliveryKitchen"
 import styled from "styled-components";
-import { Boleta } from "./components/kitchen/NavbarKitchen";
+import { Boleta } from "./components/kitchen/Tiket";
 
 
 
@@ -38,22 +34,3 @@ export default App;
 
 
 
-/*<
-
-
-
-import { Home} from "./components/home";
-import { Order } from "./components/waitress/order";
-
-function App() {
-  return (
-    <Router>
-     
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={Order} />
-      
-
-      </Router>
-        );
-      }
-      */
