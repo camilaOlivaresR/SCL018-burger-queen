@@ -38,15 +38,16 @@ export const Product = ({ data }) => {
           <button onClick={() => productsType("Para tomar")}>Para Tomar </button>
         </ul>
       </section>
+      < Section>
       {product.map((product, index) => (
         <Articulo key={index}>
           <Imagen src={product.img} />
-          <p>{product.id}</p>
-          <p>{product.name}</p>
-          <p>${product.price}</p>
+          <span>{product.name}</span>
+          <h1>${product.price}</h1>
           <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
         </Articulo>
       ))}
+      </ Section>
     </>
   )
 }
@@ -58,39 +59,29 @@ export const Product = ({ data }) => {
 
 const Articulo = styled.section`
 
-background-color: #006400;
+background-color: #fd7c84;
 text-align: center;
 color: cornsilk;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
 border-radius: 3% 3% 3% 3%;
-font-size: 12px;
-width: 20%;
 height: auto;
 margin: 1em;
-width: 30%;
-display: inherit;
-align-items: inherit;
-justify-content: inherit;
+width: 20vh;
+font-size: 13px;
+
 
 
 `;
 const Imagen = styled.img`
 
-width: 25vh;
-height: 25vh;
-width: 100%;
-display: inherit;
-align-items: inherit;
-justify-content: inherit;
+height: 13vh;
+width: 18vh;
+margin-top: 1vh;
+
+
 
 `;
 const Section = styled.section`
-margin-left: -15px;
-margin-right: -15px;
 display: flex;
+
 flex-wrap: wrap;
-flex-grow: 0;
-flex-shrink: 0;
-align-items: normal;
-justify-content: flex-start;
 `;

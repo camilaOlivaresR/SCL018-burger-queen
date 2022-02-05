@@ -7,7 +7,7 @@ export const Header = () => {
         <Headers>
             <Img src={logo} alt="" />
             <Span><Link to="/waitress">Mesera</Link></Span>
-            <Span><Link to="/boletas">Boletas</Link></Span>
+            <Span><Link to="/tiket">Boletas</Link></Span>
             <Span><Link to="/kitchen">Cocina</Link></Span>
             <Span><Link to="/">Salir</Link></Span>
         </Headers>
@@ -22,17 +22,12 @@ height: 15vh;
 display: flex;
 align-items: center;
 font-family: Lobster Two,cursive;
-color: #f6f3f3;
-font-family: Lobster Two,cursive;
 
 
 `;
 const Span = styled.span`
-width: 100%;
-display: flex;
-align-items: inherit;
-justify-content: inherit;
-margin-left: 10vw;
+margin-left: 5vw;
+
 
 ;
 
@@ -49,7 +44,7 @@ z-index: 1;
 `;
 const Img = styled.img`
 margin-top: 8vh;
-height: 25vh;
-weight: 20vh;
+height: 30vh;
+width: 35vh;
 
 `;

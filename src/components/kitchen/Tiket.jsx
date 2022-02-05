@@ -6,7 +6,7 @@ import { Header } from "../commons/Header";
 
 
 
-export const Boleta = () => {
+export const Tiket = () => {
 
   const [stadoBoleta, setStadoBoletas] = useState([]);
 
@@ -34,14 +34,14 @@ export const Boleta = () => {
     <div>
       <Header />
       <Img>
-        {nwBoleta.map((orden) => (
+        {nwBoleta.map((orden, index) => (
           <Poster>
-            <div key={orden.id}>
+            <div key={index}>
               <p>{orden.time}</p>
               <p>Mesa :{orden.mesa} </p>
               <p>Nombre :{orden.nombre} </p>
               <span>Pedido:
-                {orden.order.map(orden => <li key={orden.id}>{orden.count}-{orden.name}</li>)}
+                {orden.order.map((orden, index) => <li key={index}>{orden.count}-{orden.name}</li>)}
               </span>
               <p> Total :{orden.total}</p>
               {/*   <p>{JSON.stringify({estado})}</p>*/}

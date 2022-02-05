@@ -88,22 +88,15 @@ justify-content: flex-start;
 margin: auto;
 padding-top: 20px;
 background:  #cfcdcb;
-height: 92vh;
+height: 100vh;
 
 
       `;
 
 const Menu = styled.main`
-box-sizing: border-box;
-min-height: 1px;
-position: relative;
-padding-left: 15px;
-padding-right: 15px;
+
 flex: 0 0 62.5%;
-max-width: 62.5%;
-margin-left: 0%;
-right: auto;
-left: auto;
+
 
 
 
@@ -115,9 +108,20 @@ const Carrito = styled.aside`
 box-sizing: border-box;
 padding-left: 15px;
 background-color: #e0e0e0;
-width: 30vw;
-height: auto;
+width: 35vw;
+height: 75vh;
 
+
+
+min-height: 1px;
+position: relative;
+
+padding-right: 15px;
+flex: 0 0 33.3333%;
+max-width: 33.3333%;
+margin-left: 0%;
+right: auto;
+left: auto;
       `;
 
 const Head = styled.header`

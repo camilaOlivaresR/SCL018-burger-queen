@@ -43,7 +43,7 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
                     <p>Mesa :{mesa} </p>
                     <p>Nombre :{nombre} </p>
                     <span>Pedido:
-                        {order.map(orden => <li key={orden.id}>{orden.count}-{orden.name}</li>)}
+                        {order.map((orden , index) => <li key={index}>{orden.count}-{orden.name}</li>)}
                     </span>
                     <p> Total :{total}</p>
                     {/*   <p>{JSON.stringify({estado})}</p>*/}

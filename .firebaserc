@@ -1,7 +1,5 @@
 {
   "projects": {
-    "default": "coffequeen-9e74f",
-    "queen": "coffequeen-9e74f"
-  },
-  "targets": {}
+    "default": "coffequeen-9e74f"
+  }
 }
