@@ -66,13 +66,14 @@ Definición de terminado
 
 
 Prototipo
-![alt text](/img/pbajaFidelidad.png "Title")
+![prototipo](./src/img/pbajaFidelidad.png )
 
 Herramientas
 
     React.js.
     JavaScript ES6.
     Firebase v9.
+    Balsamiq
     Styled-component
     Css
     HTML 5
