@@ -1,14 +1,15 @@
 **Vegan Queen**
 ========
  *Definición del Producto*
-========
+--------
 Es una aplicación web para un restaurante con necesidad de poder agilizar la toma, gestión y entrega de pedidos, esta diseñada para usarse en dispositivos tipo tablet. Almacenando los datos en el servidor de firebase y actulizandoce en tiempo real.
 
 El meserx crea el pedido con nombre del cliente y número de mesa, toma el pedido, lo envia a  cocina para ser preparado y el equipo de cocina puede interactuar con el estado de pedido segun esten listos para ser entregados al comenzal.
 
 
 *Historia de Usuario 1*
-========
+--------
+
 _Mesero/a debe poder tomar pedido de cliente_
 
 Yo como meserx quiero tomar el pedido de un cliente para no depender de mi mala memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y que se puedan ir preparando en orden.
@@ -34,6 +35,7 @@ _Definición de terminado_
 
 
 *Historia de usuario 2* 
+--------
 _Jefe de cocina debe ver los pedidos_
 
 Yo como jefx de cocina quiero ver los pedidos de los clientes en orden y marcar cuáles están listos para saber qué se debe cocinar y avisar a lxs meserxs que un pedido está listo para servirlo a un cliente.
@@ -53,6 +55,7 @@ _Definición de terminado_
 
 
 *Historia de usuario 3* 
+--------
 _Meserx debe ver pedidos listos para servir_
 
 Yo como meserx quiero ver los pedidos que están preparados para entregarlos rápidamente a los clientes que las hicieron.
@@ -74,14 +77,14 @@ _Definición de terminado_
 
 ***Prototipo***
 ![prototipo](./src/img/pbajaFidelidad.png )
-========
+
 *Herramientas*
-========
-    * React.js.
-    * JavaScript ES6.
-    * Firebase v9.
-    * Balsamiq
-    * Styled-component
-    * Css
-    * HTML 5
-    * Github Project.
+--------
+    *React.js*
+    *JavaScript ES6*
+    *Firebase v9*
+    *Balsamiq*
+    *Styled-component*
+    *Css*
+    *HTML 5*
+    *Github Project*
