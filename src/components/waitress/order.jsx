@@ -15,7 +15,7 @@ export const Order = () => {
     cart: []
   });
 
-  function addProduct(product) {
+  const addProduct = (product) => {
     return setState({
       ...state,
       cart: state.cart.find((cartItem) => cartItem.id === product.id)

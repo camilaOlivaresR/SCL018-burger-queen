@@ -4,6 +4,7 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import styled from "styled-components"
 import { Header } from "../commons/Header";
+import UpdateTiket from "../kitchen/UpdateTiket";
 
 
 
@@ -30,8 +31,9 @@ export const Tiket = () => {
   }, []);
 
 
+  const oldBoleta = [...stadoBoleta]
 
-  const nwBoleta = stadoBoleta.filter((elem) => elem.estado.estado === 'Listo para Servir');
+  const nwBoleta = oldBoleta.filter((elem) =>{ return elem.estado.estado === 'Listo para Servir'});
 
 
 
@@ -40,19 +42,16 @@ export const Tiket = () => {
       <Header />
       <Img>
         {nwBoleta.map((orden, index) => (
-          <Poster>
-            <div key={index}>
-              <p>{orden.time}</p>
-              <p>Mesa :{orden.mesa} </p>
-              <p>Nombre :{orden.nombre} </p>
-              <span>Pedido:
-                {orden.order.map((orden, index) => <li key={index}>{orden.count}-{orden.name}</li>)}
-              </span>
-              <p> Total :{orden.total}</p>
-            
-              <p>{orden.estado.estado}</p>
-            </div>
-          </Poster>
+            <UpdateTiket
+            key={index}
+            id={orden.id}
+            time={orden.time}
+            mesa={orden.mesa}
+            nombre={orden.nombre}
+            estado={orden.estado}
+            total={orden.total}
+            order={orden.order}
+            />
         ))}
       </Img>
     </div>

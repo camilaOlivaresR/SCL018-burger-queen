@@ -28,7 +28,9 @@ export const ProductKitchen = () => {
   }, []);
 
   
-  const nwEstado = pedido.filter((elem) => elem.estado.estado === "Cocinando");
+  const oldEstado = [...pedido]
+
+  const nwEstado = oldEstado.filter((elem) => { return elem.estado.estado === "Cocinando"});
 
 
   
@@ -79,4 +81,7 @@ background: #cfcdcb;
     });
   };
   const nwEstado = filterEstado(pedido);
+
+  const nwEstado = pedido.filter((elem) => elem.estado.estado === "Cocinando");
+
 */} 
