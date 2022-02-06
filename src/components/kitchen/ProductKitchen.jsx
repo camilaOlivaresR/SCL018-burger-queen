@@ -28,16 +28,16 @@ export const ProductKitchen = () => {
   }, []);
 
   
-
+  const nwEstado = pedido.filter((elem) => elem.estado.estado === "Cocinando");
 
 
   
   return (
-  pedido.length > 0 &&
+    nwEstado .length > 0 &&
     <Img>
-      {pedido.map((orden, index) => (
+      {nwEstado .map((orden, index) => (
         <Update
-          key={orden.id}
+          key={index}
           id={orden.id}
           time={orden.time}
           mesa={orden.mesa}

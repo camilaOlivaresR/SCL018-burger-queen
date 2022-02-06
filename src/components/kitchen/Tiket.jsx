@@ -1,4 +1,4 @@
-{/*
+
 import { db } from "../../firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -83,7 +83,7 @@ margin: 1em;
 
 `;
 
-*/}
+
 
 {/* 
 

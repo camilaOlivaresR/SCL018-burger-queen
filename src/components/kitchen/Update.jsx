@@ -9,8 +9,7 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
 
     const [status,  setStatus ] = useState({
         //estado: 'Cocinando'
-        estado: { estado: 'Cocinando' },
-
+        estado: { estado: 'Cocinando' }
 
     });
 
@@ -20,6 +19,7 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
             estado: 'Listo para Servir',
         })
     }
+
    
 
     const actualizarEstado = async (e) => {

@@ -17,7 +17,7 @@ import {Tiket } from "./components/kitchen/Tiket";
           <Route path="/" element={<Home />} />
           <Route path="/waitress" element={<Order />} />
           <Route path="/kitchen" element={<DeliveryKitchen />} /> 
-        {/*  <Route path="/tiket" element={<Tiket />} />   */}
+          <Route path="/tiket" element={<Tiket />} />   
         </Routes>
       </div>
     </Router>
