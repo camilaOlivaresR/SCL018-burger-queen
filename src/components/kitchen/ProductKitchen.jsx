@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { collection, onSnapshot, orderBy, query, doc, updateDoc } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import styled from "styled-components"
 import Update from "./Update";
@@ -27,13 +27,15 @@ export const ProductKitchen = () => {
     );
   }, []);
 
-  const nwEstado = pedido.filter((elem) => elem.estado.estado === "Cocinando");
+  
 
 
+
+  
   return (
-    nwEstado.length > 0 &&
+  pedido.length > 0 &&
     <Img>
-      {nwEstado.map((orden) => (
+      {pedido.map((orden, index) => (
         <Update
           key={orden.id}
           id={orden.id}
@@ -60,3 +62,21 @@ background: #cfcdcb;
 `;
 
 
+ 
+ {/* const nwEstado = () => {
+    cambiarPedido({
+      ...pedido,
+     tiket: pedido.filter((elem) => elem.estado.estado === 'Cocinando')
+    });
+  };
+  const nwEstado = pedido.filter((elem) => elem.estado.estado === "Cocinando");
+
+
+     const filterEstado = () => {
+    cambiarPedido({
+      ...pedido,
+     tiket: pedido.filter((elem) => elem.estado.estado === 'Cocinando')
+    });
+  };
+  const nwEstado = filterEstado(pedido);
+*/} 

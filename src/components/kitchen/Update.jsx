@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import { useState } from "react";
 import { db } from "../../firebase";
@@ -6,19 +7,20 @@ import { doc, updateDoc } from "firebase/firestore";
 const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
 
 
-    const [status, setStatus] = useState({
+    const [status,  setStatus ] = useState({
         //estado: 'Cocinando'
-        estado: { estado: 'Cocinando' }
+        estado: { estado: 'Cocinando' },
+
 
     });
 
     const changeStatus = () => {
         setStatus({
             ...status,
-            estado: 'Listo para Servir'
+            estado: 'Listo para Servir',
         })
     }
-
+   
 
     const actualizarEstado = async (e) => {
         e.preventDefault();
@@ -46,9 +48,9 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
                         {order.map((orden , index) => <li key={index}>{orden.count}-{orden.name}</li>)}
                     </span>
                     <p> Total :{total}</p>
-                    {/*   <p>{JSON.stringify({estado})}</p>*/}
+                   {/*   <p>{JSON.stringify({estado})}</p>*/}
                     <P>{estado.estado}</P>
-                    <button type='submit' onClick={changeStatus} >Ok</button>
+                    <button type='submit' onClick={changeStatus} >Listo</button>
                 </div>
             </form>
         </Poster>
@@ -79,3 +81,6 @@ const P = styled.p`
  font-weight: bold;
 
  `;
+
+
+ 

@@ -1,3 +1,4 @@
+{/*
 import { db } from "../../firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -7,8 +8,9 @@ import { Header } from "../commons/Header";
 
 
 export const Tiket = () => {
+ 
+  const [stadoBoleta,  setStadoBoletas] = useState([]);
 
-  const [stadoBoleta, setStadoBoletas] = useState([]);
 
   useEffect(() => {
     const q = query(collection(db, "order"), orderBy('time', 'desc'));
@@ -27,7 +29,10 @@ export const Tiket = () => {
     );
   }, []);
 
+
+
   const nwBoleta = stadoBoleta.filter((elem) => elem.estado.estado === 'Listo para Servir');
+
 
 
   return (
@@ -44,7 +49,7 @@ export const Tiket = () => {
                 {orden.order.map((orden, index) => <li key={index}>{orden.count}-{orden.name}</li>)}
               </span>
               <p> Total :{orden.total}</p>
-              {/*   <p>{JSON.stringify({estado})}</p>*/}
+            
               <p>{orden.estado.estado}</p>
             </div>
           </Poster>
@@ -77,3 +82,17 @@ margin: 1em;
 
 
 `;
+
+*/}
+
+{/* 
+
+const nwBoleta = () => {
+    setStadoBoletas({
+      ...stadoBoleta,
+     tiket: stadoBoleta.filter((elem) => elem.estado.estado === 'Listo para Servir')
+    });
+  };
+*/}
+
+  {/*   <p>{JSON.stringify({estado})}</p>*/}

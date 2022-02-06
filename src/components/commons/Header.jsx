@@ -7,7 +7,7 @@ export const Header = () => {
         <Headers>
             <Img src={logo} alt="" />
             <Span><Link to="/waitress">Mesera</Link></Span>
-            <Span><Link to="/tiket">Boletas</Link></Span>
+         {/*   <Span><Link to="/tiket">Boletas</Link></Span>*/}
             <Span><Link to="/kitchen">Cocina</Link></Span>
             <Span><Link to="/">Salir</Link></Span>
         </Headers>
@@ -26,12 +26,7 @@ font-family: Lobster Two,cursive;
 
 `;
 const Span = styled.span`
-margin-left: 5vw;
-
-
-;
-
-        
+margin-left: 5vw;        
 `;
 
 const Nav = styled.nav`
