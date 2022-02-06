@@ -76,15 +76,16 @@ _Definición de terminado_
 
 
 ***Prototipo***
+--------
 ![prototipo](./src/img/pbajaFidelidad.png )
 
 *Herramientas*
 --------
-    *React.js*
-    *JavaScript ES6*
-    *Firebase v9*
-    *Balsamiq*
-    *Styled-component*
-    *Css*
-    *HTML 5*
-    *Github Project*
+    React.js
+    JavaScript ES6
+    Firebase v9
+    Balsamiq
+    Styled-component
+    Css
+    HTML 5
+    Github Project
