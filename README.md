@@ -81,7 +81,7 @@ _Definición de terminado_
 
 *Herramientas*
 --------
-    React.js
+    React 17.0.2
     JavaScript ES6
     Firebase v9
     Balsamiq

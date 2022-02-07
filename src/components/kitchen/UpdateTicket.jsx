@@ -6,7 +6,6 @@ import { doc, updateDoc } from "firebase/firestore";
 const UpdateTicket = ({ id, time, mesa, nombre, estado, total, order }) => {
 
     const [status, setStatus] = useState({
-        //estado: 'Cocinando'
         estado: { estado: 'Listo para Servir' }
 
     });

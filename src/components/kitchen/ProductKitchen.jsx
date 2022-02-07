@@ -16,10 +16,14 @@ export const ProductKitchen = () => {
       //console.log('se ejecuto snapshot')
       // console.log(snapshot.docs[0].data());
       const arregloProductos = snapshot.docs.map((documento) => {
+        //aplico map a todos los elementos de la coleccion
+        //por cada elemento de la base de dato quiero que me devuelva
+        //y guardes en el arreglo un objeto, documento.data y un id 
         return { ...documento.data(), id: documento.id }
 
       })
       cambiarPedido(arregloProductos);
+
     },
       (error) => {
         console.log(error);

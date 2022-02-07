@@ -4,7 +4,6 @@ import { db } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import styled from "styled-components";
 
-//carrito de compas es un estado que va cambiando
 const Cart = () => {
   const context = useContext(MenuContext);
   const cartItems = context.state.cart;
@@ -13,8 +12,7 @@ const Cart = () => {
     (total = total + product.price * product.count), 0);
   //total= acumulador toma el valor de 0 la primera vez
   //product= al elemento que iteraremos
-  // const totalCartCount = context.state.cart.reduce(
-  // (total, product) => (total = total + product.count), 0);
+
 
   const getDate = () => {
     const hoy = new Date();
@@ -138,3 +136,7 @@ width: 20vw;
 const Form = styled.form`
 height: 75vh;
 `;
+
+
+  // const totalCartCount = context.state.cart.reduce(
+  // (total, product) => (total = total + product.count), 0);

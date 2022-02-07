@@ -6,7 +6,7 @@ import {Ticket } from "./components/kitchen/Ticket";
 
 
 
-{/**/}
+
 
  const App = () => {
   return (

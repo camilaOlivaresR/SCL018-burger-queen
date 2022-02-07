@@ -6,8 +6,7 @@ import { doc, updateDoc } from "firebase/firestore";
 const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
 
 
-    const [status,  setStatus ] = useState({
-        //estado: 'Cocinando'
+    const [status, setStatus] = useState({
         estado: { estado: 'Cocinando' }
 
     });
@@ -19,7 +18,7 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
         })
     }
 
-   
+
 
     const actualizarEstado = async (e) => {
         e.preventDefault();
@@ -44,10 +43,10 @@ const Update = ({ id, time, mesa, nombre, estado, total, order }) => {
                     <p>Mesa :{mesa} </p>
                     <p>Nombre :{nombre} </p>
                     <span>Pedido:
-                        {order.map((orden , index) => <li key={index}>{orden.count}-{orden.name}</li>)}
+                        {order.map((orden, index) => <li key={index}>{orden.count}-{orden.name}</li>)}
                     </span>
                     <p> Total :{total}</p>
-                   {/*   <p>{JSON.stringify({estado})}</p>*/}
+                    {/*<p>{JSON.stringify({estado})}</p>*/}
                     <P>{estado.estado}</P>
                     <button type='submit' onClick={changeStatus} >Listo</button>
                 </div>
@@ -82,4 +81,3 @@ const P = styled.p`
  `;
 
 
- 
