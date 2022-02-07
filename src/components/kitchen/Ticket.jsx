@@ -4,11 +4,11 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import styled from "styled-components"
 import { Header } from "../commons/Header";
-import UpdateTiket from "../kitchen/UpdateTiket";
+import UpdateTicket from "./UpdateTicket";
 
 
 
-export const Tiket = () => {
+export const Ticket = () => {
  
   const [stadoBoleta,  setStadoBoletas] = useState([]);
 
@@ -32,17 +32,21 @@ export const Tiket = () => {
 
 
   const oldBoleta = [...stadoBoleta]
-
+//dentro del filtro ejecutamos un callback
   const nwBoleta = oldBoleta.filter((elem) =>{ return elem.estado.estado === 'Listo para Servir'});
 
-
+  useEffect(()=>{
+    return(()=>{
+      console.log('Cerramos coneccion con la API')
+    });
+  }, []);
 
   return (
     <div>
       <Header />
       <Img>
         {nwBoleta.map((orden, index) => (
-            <UpdateTiket
+            <UpdateTicket
             key={index}
             id={orden.id}
             time={orden.time}

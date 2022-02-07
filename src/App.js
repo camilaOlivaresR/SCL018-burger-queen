@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home"
 import { Order } from "./components/waitress/Order"
 import { DeliveryKitchen } from "./components/kitchen/DeliveryKitchen"
-import {Tiket } from "./components/kitchen/Tiket";
+import {Ticket } from "./components/kitchen/Ticket";
 
 
 
@@ -17,7 +17,7 @@ import {Tiket } from "./components/kitchen/Tiket";
           <Route path="/" element={<Home />} />
           <Route path="/waitress" element={<Order />} />
           <Route path="/kitchen" element={<DeliveryKitchen />} /> 
-          <Route path="/tiket" element={<Tiket />} />   
+          <Route path="/ticket" element={<Ticket />} />   
         </Routes>
       </div>
     </Router>

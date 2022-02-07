@@ -28,7 +28,6 @@ export const Product = ({ data }) => {
     }
   };
 
-
   return (
     <>
       <section >
@@ -39,26 +38,20 @@ export const Product = ({ data }) => {
         </ul>
       </section>
       < Section>
-      {product.map((product, index) => (
-        <Articulo key={index}>
-          <Imagen src={product.img} />
-          <span>{product.name}</span>
-          <h1>${product.price}</h1>
-          <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
-        </Articulo>
-      ))}
+        {product.map((product, index) => (
+          <Articulo key={index}>
+            <Imagen src={product.img} />
+            <span>{product.name}</span>
+            <h1>${product.price}</h1>
+            <button onClick={() => context.addProduct(product)}>Agregar a mi Carro</button>
+          </Articulo>
+        ))}
       </ Section>
     </>
   )
 }
 
-
-
-
-
-
 const Articulo = styled.section`
-
 background-color: #fd7c84;
 text-align: center;
 color: cornsilk;
@@ -67,21 +60,14 @@ height: auto;
 margin: 1em;
 width: 20vh;
 font-size: 13px;
-
-
-
 `;
-const Imagen = styled.img`
 
+const Imagen = styled.img`
 height: 13vh;
 width: 18vh;
 margin-top: 1vh;
-
-
-
 `;
 const Section = styled.section`
 display: flex;
-
 flex-wrap: wrap;
 `;

@@ -1,13 +1,11 @@
-
 import styled from "styled-components";
 import { useState } from "react";
 import { db } from "../../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 
-const UpdateTiket = ({ id, time, mesa, nombre, estado, total, order }) => {
+const UpdateTicket = ({ id, time, mesa, nombre, estado, total, order }) => {
 
-
-    const [status,  setStatus ] = useState({
+    const [status, setStatus] = useState({
         //estado: 'Cocinando'
         estado: { estado: 'Listo para Servir' }
 
@@ -19,8 +17,6 @@ const UpdateTiket = ({ id, time, mesa, nombre, estado, total, order }) => {
             estado: 'Entregado',
         })
     }
-
-   
 
     const actualizarEstado = async (e) => {
         e.preventDefault();
@@ -35,9 +31,7 @@ const UpdateTiket = ({ id, time, mesa, nombre, estado, total, order }) => {
             console.log(error);
         }
     }
-
     return (
-
         <Poster>
             <form action="" onSubmit={actualizarEstado}>
                 <div key={id}>
@@ -45,26 +39,22 @@ const UpdateTiket = ({ id, time, mesa, nombre, estado, total, order }) => {
                     <p>Mesa :{mesa} </p>
                     <p>Nombre :{nombre} </p>
                     <span>Pedido:
-                        {order.map((orden , index) => <li key={index}>{orden.count}-{orden.name}</li>)}
+                        {order.map((orden, index) =>
+                            <li key={index}>{orden.count}-{orden.name}</li>)}
                     </span>
                     <p> Total :{total}</p>
-                   {/*   <p>{JSON.stringify({estado})}</p>*/}
+                    {/*<p>{JSON.stringify({estado})}</p>*/}
                     <P>{estado.estado}</P>
                     <button type='submit' onClick={changeStatus} >Enviar Boleta </button>
                 </div>
             </form>
         </Poster>
     )
-
-
-
 };
 
-export default UpdateTiket;
-
+export default UpdateTicket;
 
 const Poster = styled.section`
-
 background-color:#f0eeef;
 text-align: center;
 border-radius: 3% 3% 3% 3%;
@@ -72,15 +62,10 @@ font-size: 12px;
 width: 20%;
 height: auto;
 margin: 1em;
-
-
-
 `;
 const P = styled.p`
  color: red;
  font-weight: bold;
-
  `;
 
 
- 

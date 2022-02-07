@@ -16,19 +16,39 @@ export const Order = () => {
   });
 
   const addProduct = (product) => {
+    //producto a agregar
+    console.log(addProduct);
+    //el nuevo estado sera un carrito con productos
     return setState({
+      //Para modificar el carrito hay que clonarlo
       ...state,
+      //revisar que el carrito no tenga ya el producto que queremos agregar
+      //condicional si el producto de carrito es igual al id del producto a agregar
+      //nos retorna este valor en un arreglo vacio cart
       cart: state.cart.find((cartItem) => cartItem.id === product.id)
         ? state.cart.map((cartItem) =>
+          //se ejecutara un callback por cada elemento si el condicional es verdadero
+          //nos devolvera ese elemento
+          //comprobar si el producto que tenemos en el carrito es igual 
+          //a un producto nuevo que queremos agregar
           cartItem.id === product.id
+            //SI ESTA CONDICION ES VERDADERA, nos devolvera este valor(cartItem) en un nuevo arreglo
+            //quiero acceder a la cantidad de items cartItem.count, aumentarla
+            //si el id que queremos agregar es igual al id que tenemos en el carro
+            //queremos aumentar la cantidad, sobreescribir y sera un objeto con la propiedad de count
             ? { ...cartItem, count: cartItem.count + 1 }
+            //quiero acceder a la propiedad cantidad ,count, la cantidad que ya teniamos + 1
             : cartItem
-        )
+          // si no se cumple la condicion
+        )// de otra forma agregamos el producto al arreglo la cantidad comienza en 1
+        // se ejecuta en caso de agregar un producto que no est en el carrito
+        // inyectar un nuevo elemento al arreglo sera un objeto
         : [...state.cart, { ...product, count: 1 }]
     });
   }
 
   const removeFromCart = (id) => {
+    console.log(removeFromCart);
     setState({
       ...state,
       cart: state.cart.filter((cartItem) => cartItem.id !== id)
@@ -80,8 +100,7 @@ export const Order = () => {
 }
 
 
-const Contenedor = styled.div`
-    
+const Contenedor = styled.div`   
 display: flex;
 flex-flow:  wrap;
 justify-content: flex-start;
@@ -89,20 +108,11 @@ margin: auto;
 padding-top: 20px;
 background:  #cfcdcb;
 height: 100vh;
-
-
-      `;
+ `;
 
 const Menu = styled.main`
-
 flex: 0 0 62.5%;
-
-
-
-
-
-
-      `;
+ `;
 
 const Carrito = styled.aside`
 box-sizing: border-box;
@@ -110,12 +120,8 @@ padding-left: 15px;
 background-color: #e0e0e0;
 width: 35vw;
 height: 75vh;
-
-
-
 min-height: 1px;
 position: relative;
-
 padding-right: 15px;
 flex: 0 0 33.3333%;
 max-width: 33.3333%;

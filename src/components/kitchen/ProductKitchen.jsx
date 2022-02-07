@@ -26,13 +26,21 @@ export const ProductKitchen = () => {
       }
     );
   }, []);
+  //conectamos a la API
+  // al poner [] el useEffect se ejecuta solamente al primer renderizado
+  //arreglo de dependencias[], puede ser muy util para hacer coneccion a una Api
+  // nos conectamos a la base de datos cuando la pagina cargue por primera vez
 
   
   const oldEstado = [...pedido]
-
+//dentro del filtro ejecutamos un callback
   const nwEstado = oldEstado.filter((elem) => { return elem.estado.estado === "Cocinando"});
 
-
+useEffect(()=>{
+  return(()=>{
+    console.log('Cerramos coneccion con la API')
+  });
+}, []);
   
   return (
     nwEstado .length > 0 &&
