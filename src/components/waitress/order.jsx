@@ -14,8 +14,10 @@ export const Order = () => {
     menuList: data,
     cart: []
   });
+console.log(state.cart);
+  
 
-  const addProduct = (product) => {
+const addProduct = (product) => {
     //producto a agregar
     console.log(addProduct);
     //el nuevo estado sera un carrito con productos
@@ -31,8 +33,7 @@ export const Order = () => {
          //queremos aumentar la cantidad, sobreescribir y sera un objeto con la propiedad de count
          //quiero acceder a la propiedad cantidad ,count, la cantidad que ya teniamos + 1
             ? { ...cartItem, count: cartItem.count + 1 }
-          : cartItem
-        )// de otra forma agregamos el producto al arreglo la cantidad comienza en 1
+          : cartItem)// de otra forma agregamos el producto al arreglo la cantidad comienza en 1
         // se ejecuta en caso de agregar un producto que no est en el carrito
         // inyectar un nuevo elemento al arreglo sera un objeto
         : [...state.cart, { ...product, count: 1 }]
@@ -75,7 +76,7 @@ export const Order = () => {
       cart: []
     })
   }
-  const sum = { state: state, addProduct, removeFromCart, increase, decrease, removeAll };
+  const sum = {  state, addProduct, removeFromCart, increase, decrease, removeAll };
   return (
     <MenuContext.Provider value={sum}>
       <Header />

@@ -12,7 +12,8 @@ const Cart = () => {
     (total = total + product.price * product.count), 0);
   //total= acumulador toma el valor de 0 la primera vez
   //product= al elemento que iteraremos
-
+  const totalCartCount = context.state.cart.reduce(
+    (total, product) => (total = total + product.count), 0);
 
   const getDate = () => {
     const hoy = new Date();
@@ -89,6 +90,7 @@ const Cart = () => {
           ))}
         </Card>
         <Component>
+          <p>{totalCartCount}</p>
           <h1>Total:${totalCart}</h1>
           <button type="submit" >
             Enviar a cocina
