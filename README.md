@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+**Vegan Queen**
+========
+ *Definición del Producto*
+--------
+Es una aplicación web para un restaurante con necesidad de poder agilizar la toma, gestión y entrega de pedidos, esta diseñada para usarse en dispositivos tipo tablet. Almacenando los datos en el servidor de firebase y actulizandoce en tiempo real.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El meserx crea el pedido con nombre del cliente y número de mesa, toma el pedido, lo envia a  cocina para ser preparado y el equipo de cocina puede interactuar con el estado de pedido segun esten listos para ser entregados al comenzal.
 
-## Available Scripts
 
-In the project directory, you can run:
+*Historia de Usuario 1*
+--------
 
-### `npm start`
+_Mesero/a debe poder tomar pedido de cliente_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Yo como meserx quiero tomar el pedido de un cliente para no depender de mi mala memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y que se puedan ir preparando en orden.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+_Criterios minimos de aceptación_
 
-### `npm test`
+    Anotar nombre de cliente.
+    Agregar productos al pedido.
+    Eliminar productos.
+    Ver resumen y el total de la compra.
+    Enviar pedido a cocina (guardar Firebase v-9).
+    Se ve y funciona bien en una tablet.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_Definición de terminado_
 
-### `npm run build`
+    Identificar el cliente y crear nueva mesa.
+    Ruta de menú implementada.
+    Menú Json creado y accesible.
+    Al seleccionar el pedido, de forma interactiva se visualiza los productos y el total del pedido.
+    El pedido se envía a la colección firestore "orders".
+    Cada pedido se puede visualizar en la sección de Pedidos, resumen que consta con nombre del cliente, número de mesa, nombre del mesero o mesera y productos pedidos con su respectiva cantidad y precio y el total.
+    Diseño de interfaz terminado.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*Historia de usuario 2* 
+--------
+_Jefe de cocina debe ver los pedidos_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Yo como jefx de cocina quiero ver los pedidos de los clientes en orden y marcar cuáles están listos para saber qué se debe cocinar y avisar a lxs meserxs que un pedido está listo para servirlo a un cliente.
 
-### `npm run eject`
+_Criterios de aceptación_
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Ver los pedidos ordenados según se van haciendo.
+    Marcar los pedidos que se han preparado y están listos para servirse.
+   
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_Definición de terminado_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    Debes haber recibido code review de al menos una compañera.
+    Haces test unitarios y, además, has testeado tu producto manualmente.
+    Hiciste tests de usabilidad e incorporaste el feedback del usuario.
+    Desplegaste tu aplicación y has etiquetado tu versión (git tag).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+*Historia de usuario 3* 
+--------
+_Meserx debe ver pedidos listos para servir_
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Yo como meserx quiero ver los pedidos que están preparados para entregarlos rápidamente a los clientes que las hicieron.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_Criterios de aceptación_
 
-### Code Splitting
+    Ver listado de pedido listos para servir.
+    Marcar pedidos que han sido entregados.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+_Definición de terminado_
 
-### Analyzing the Bundle Size
+    Debes haber recibido code review de al menos una compañera.
+    Haces test unitarios y, además, has testeado tu producto manualmente.
+    Hiciste tests de usabilidad e incorporaste el feedback del usuario.
+    Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+    Los datos se deben mantener íntegros, incluso después de que un pedido ha terminado. Todo esto para poder tener estadísticas en el futuro.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+***Prototipo***
+--------
+![prototipo](./src/img/pbajaFidelidad.png )
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*Herramientas*
+--------
+    React 17.0.2
+    JavaScript ES6
+    Firebase v9
+    Balsamiq
+    Styled-component
+    Css
+    HTML 5
+    Github Project
